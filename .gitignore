@@ -1,7 +1,10 @@
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
-!wp-content/themes/hut-sctv-underscore/
+!wp-content/themes/underscore/
 
 # Ignore sublime projects
 *.sublime-project
 *.sublime-workspace
+
+# Ignore mac auto-generated file
+.DS_Store
