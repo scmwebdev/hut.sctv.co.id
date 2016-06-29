@@ -1,0 +1,34 @@
+/*!
+Theme Name: HUT SCTV Underscore
+Author: Gamal
+Description: Theme for HUT SCTV 2016
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: hut-sctv-underscore
+*/
+
+/*--------------------------------------------------------------
+# Import Vendor Style 
+--------------------------------------------------------------*/
+@import "vendor/vendor";
+
+/*--------------------------------------------------------------
+# Import Utility 
+--------------------------------------------------------------*/
+@import "utils/utils";
+
+/*--------------------------------------------------------------
+# Import Base 
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Import Components 
+--------------------------------------------------------------*/
+@import "components/components";
+
+/*--------------------------------------------------------------
+# Layout 
+--------------------------------------------------------------*/
+@import "layout/layout";

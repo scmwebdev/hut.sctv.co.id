@@ -1,0 +1,146 @@
+/* =================
+* Utility Classes
+* ================= */
+
+.fullwidth {
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+ul.nodots {
+    margin: 0;
+    padding-left: 0;
+    li {
+        list-style-type: none !important;
+    }
+}
+
+.active {
+    display: block;
+}
+
+.not-active {
+    display: none;
+}
+
+.events-none {
+    pointer-events: none;
+}
+
+.vis-hidden {
+    visibility: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+/* ------------------------------------
+ * Spacing - Padding and Margin
+ * ------------------------------------ */
+
+
+/*
+ * Generate spacepad and spacemar
+ * result: spacepad-5, spacepad-10, etc..
+ */
+
+@for $i from 1 through 4 {
+    $x: $i * 10 / 2;
+    .spacepad-#{$x} {
+        padding-top: $x + px;
+        padding-bottom: $x + px;
+    }
+    .spacemar-#{$x} {
+        margin-top: $x + px;
+        margin-bottom: $x + px;
+    }
+    .spacepad-side-#{$x} {
+        padding-left: $x + px;
+        padding-right: $x + px;
+    }
+    .spacemar-side-#{$x} {
+        margin-left: $x + px;
+        margin-right: $x + px;
+    }
+}
+
+$direction: top right bottom left;
+@each $dir in $direction {
+    .no-padding-#{$dir} {
+        padding-#{$dir}: 0px !important;
+    }
+    .no-margin-#{$dir} {
+        margin-#{$dir}: 0px !important;
+    }
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-spacepad {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.no-spacepad-side {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-spacemar {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.no-spacemar-side {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+
+/* ------------------------------------ */
+
+/*use the nofloat if child(div) elements are float*/
+.vertical-align-nofloat > div,
+.vertical-align-nofloat > ul {
+    display: inline-block;
+    float: none !important;
+
+    vertical-align: middle;
+}
+/*move the all child of the div except the first child so that it can sit side by side*/
+.vertical-align-nofloat > div:not(first-child),
+.vertical-align-nofloat > ul:not(first-child) {
+    margin-left: -4px;
+}
+
+/* create skew object - it must have the correct html structure*/
+.skew {
+    &-bg {
+        transform: skew(0, -3deg); //skew
+    }
+    &-content {
+        transform: skew(0, 3deg);  //inverse skew
+    }
+}

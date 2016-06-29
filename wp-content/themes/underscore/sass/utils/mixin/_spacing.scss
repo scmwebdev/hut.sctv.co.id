@@ -1,0 +1,25 @@
+/* ------------------------------------
+ * Spacing - Padding and Margin
+ * ------------------------------------ */
+
+// padding top and bottom
+@mixin spacepad($value) {
+    padding-top: $value;
+    padding-bottom: $value;
+}
+
+// padding left and right
+@mixin spacepad-side($value) {
+    padding-left: $value;
+    padding-right: $value;
+}
+
+@mixin spacemar($value) {
+    margin-top: $value;
+    margin-bottom: $value;
+}
+
+@mixin spacemar-side($value) {
+    margin-left: $value;
+    margin-right: $value;
+}
