@@ -4,12 +4,17 @@
 
 #personality-quiz {
     .item {
-        // width: 200px;
-        min-height: 200px;
+        // min-height: 200px;
         float: left;
+        position: relative;
         min-width: 180px;
+        @include transition(.2s);
         @include breakpoint(md) {
             min-width: 250px;
+        }
+        top: 0;
+        &.selected {
+            top: -40px;
         }
     }
 }
