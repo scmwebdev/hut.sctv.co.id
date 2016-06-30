@@ -10,7 +10,7 @@
 
 	<main class="quiz" id="personality-quiz">
 		<div class="container">
-			<h1 class="text-center">Personality Quiz</h1>
+			<h1 class="text-center"><?php the_title(); ?></h1>
 		</div>
 	</main>
 

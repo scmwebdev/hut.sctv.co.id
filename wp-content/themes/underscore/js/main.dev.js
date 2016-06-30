@@ -23,15 +23,15 @@
                 arr.push('<div class="item" data-score="'+ data[i].score +'"><img src="' + data[i].img + '"></div>');
             }
 
+            var container = $('#personality-quiz .container');
             $("<div>", {
-                "class": "my-new-list",
+                "class": "quiz-container clearfix spacepad-15",
                 html: arr.join("")
-            }).appendTo(".quiz-container");
+            }).appendTo(container);
+            $('<div>', {
+            	'id': 'info'
+            }).appendTo(container);
         })
-
-
-
-
 
 
 })(jQuery);
