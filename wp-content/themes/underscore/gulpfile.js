@@ -66,7 +66,7 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('style', function() {
-    return gulp.src(style.main)
+    return gulp.src(basePaths.style + '/*.scss')
         .pipe(plugins.plumber({
             errorHandler: function(err) {
                 console.log(err);
@@ -145,9 +145,14 @@ gulp.task('utility', ['bootstrap', 'slicky', 'font-awesome']);
  * ======================================================== */
 
 gulp.task('default', ['style', 'js', 'browserSync'], function() {
-    gulp.watch('*.scss', { cwd: path + '/sass' }, ['style']);
-    gulp.watch('**/*.scss', { cwd: path + '/sass' }, ['style']);
-    gulp.watch('*.js', { cwd: path + '/js' }, ['js']);
+
+    // gulp.watch('*.scss', { cwd: basePaths.theme + '/sass' }, ['style']);
+    // gulp.watch('**/*.scss', { cwd: basePaths.theme + '/sass' }, ['style']);
+    // gulp.watch('*.js', { cwd: basePaths.theme + '/js' }, ['js']);
+    // gulp.watch('**/*.js', { cwd: basePaths.theme + '/js' }, ['js']);
+
+    gulp.watch('**/*.scss', { cwd: 'sass/' }, ['style']);
+    gulp.watch('**/*.js', { cwd: 'js/' }, ['js']);
 });
 
 /* ========================================================
