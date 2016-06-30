@@ -84,6 +84,12 @@ gulp.task('style', function() {
 
 gulp.task('js', function() {
     return gulp.src(jsFiles)
+        .pipe(plugins.plumber({
+            errorHandler: function(err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
         .pipe(plugins.concat('main.js'))
         .pipe(gulp.dest(basePaths.theme))
         .pipe(reload({ stream: true }));
