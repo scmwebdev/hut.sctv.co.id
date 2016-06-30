@@ -9,5 +9,8 @@ wp-content/themes/*
 # Ignore mac auto-generated file
 .DS_Store
 
-# Ignore src whithin themes files
+# Ignore src folder whithin themes files
 wp-content/themes/**/src/
+
+# Ignore dist folder whithin themes files
+wp-content/themes/**/dist/
