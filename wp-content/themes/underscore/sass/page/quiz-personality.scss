@@ -2,13 +2,14 @@
  * Page - Quiz Personality
  */
 
- #personality-quiz {
-
- 	.item {
- 		// width: 200px;
- 		min-height: 200px;
- 		float: left;
- 		width: calc(100% - 75%);
- 	}
-
- }
+#personality-quiz {
+    .item {
+        // width: 200px;
+        min-height: 200px;
+        float: left;
+        min-width: 180px;
+        @include breakpoint(md) {
+            min-width: 250px;
+        }
+    }
+}
