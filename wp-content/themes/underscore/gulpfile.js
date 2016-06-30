@@ -46,7 +46,7 @@ var jsFiles = [
     basePaths.npm + 'jquery/dist/jquery.js',
     basePaths.npm + 'fastclick/lib/*.js',
     module.slick + 'slick.js',
-    'js/main.js'
+    'js/main.dev.js'
 ]
 /* ========================================================
  * Tasks with Browser Sync
