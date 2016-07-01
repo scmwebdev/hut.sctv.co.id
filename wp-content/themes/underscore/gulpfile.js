@@ -27,7 +27,7 @@ var style = {
 var module = {
     slick: basePaths.npm + 'slick-carousel/slick/',
     fontawesome: basePaths.npm + 'slick-carousel/font-awesome/',
-    bootstrap: basePaths.npm + 'bootstrap-plugins.sass/assets/'
+    bootstrap: basePaths.npm + 'bootstrap-sass/assets/'
 }
 
 // paths for the dist folder
@@ -60,7 +60,7 @@ gulp.task('browserSync', function() {
     ];
 
     browserSync.init(files, {
-        proxy: "http://localhost:8888/hut.sctv.co.id/",
+        proxy: "http://localhost/hut.sctv.co.id/",
         notify: 'false'
     });
 });

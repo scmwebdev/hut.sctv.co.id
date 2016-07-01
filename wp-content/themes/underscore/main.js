@@ -12938,6 +12938,7 @@ var PersonalityQuiz = {
     startQuiz: function(settings) {
         PersonalityQuiz.config = {
             jsonURL: siteUrl + '/wp-content/themes/underscore/json/personality.json',
+            itemSelected : '.quiz-container > .item.selected'
         }
         $.extend(PersonalityQuiz.config, settings);
 
@@ -12963,7 +12964,7 @@ var PersonalityQuiz = {
 
                 var personaArr = [];
                 for (i = 0; i < data.length; i++) {
-                    personaArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + data[i].img + '"></div>');
+                    personaArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"></div>');
                 }
 
                 PersonalityQuiz.appendUI(personaArr);
@@ -12999,19 +13000,47 @@ var PersonalityQuiz = {
 
     },
     bindUI: function() {
-        var score = 0;
-        var item = $('.quiz-container > .item');
-        var displayScore = $('#score').val(score);
 
-        item.click(function() {
-            // var getScore = $(this).attr('data-score');
-            $(this).addClass('selected');
-            score++;
+        var itemSelected = $(PersonalityQuiz.config.itemSelected);
+        var item = $('.quiz-container > .item');
+
+        var itemSelected = $(PersonalityQuiz.config.itemSelected);
+        var total = itemSelected.length;
+
+        console.log(total);
+        
+        item.on('click', function() {
+
+            var score = 0;
+            
+            var selected = PersonalityQuiz.countSelected();
+            
+
+            if(selected == 2) {
+                $(item).not('.selected').css('pointer-events', 'none');
+                // console.log(selected);
+            } //else {
+            //     $(item).css('pointer-events', 'auto');
+            // }
+
+            var displayScore = $('#score').val(score);
+            // console.log(final);
+
+            $(this).toggleClass('selected');
+            var getScore = $(this).attr('data-score');
+
         });
 
 
         // PersonalityQuiz.getScore();
     },
+    countSelected: function() {
+
+        var itemSelected = $(PersonalityQuiz.config.itemSelected);
+        var total = itemSelected.length;
+
+        return total;
+    }
     // getScore: function() {
 
     //     var scoreBtn = $('#btn-score');
@@ -13028,7 +13057,7 @@ var PersonalityQuiz = {
     //     });
 
     // console.log(itemSelected.attr('data-score'));
-// }
+    // }
 
 };
 
@@ -13037,11 +13066,11 @@ var PersonalityQuiz = {
     console.log('forbidden lover');
     PersonalityQuiz.startQuiz();
 
-    var scoreBtn = $('#btn-score');
-    var itemSelected = $('.quiz-container > .item.selected');
-    var itemSelectedAttr = itemSelected.attr('data-score');
-    var item = $('.quiz-container > .item');
-    var itemAttr = item.attr('data-score');
+    // var scoreBtn = $('#btn-score');
+    // var itemSelected = $('.quiz-container > .item.selected');
+    // var itemSelectedAttr = itemSelected.attr('data-score');
+    // var item = $('.quiz-container > .item');
+    // var itemAttr = item.attr('data-score');
 
 
 })(jQuery);
