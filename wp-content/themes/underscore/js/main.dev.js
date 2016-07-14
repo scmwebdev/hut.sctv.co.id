@@ -3,21 +3,23 @@
  */
 
 var PersonalityQuiz = {
+    'config': {
+        jsonURL: siteUrl + '/wp-content/themes/underscore/json/personality.json',
+        submitBtn: $('#submitScore'),
+        container: $('#personality-quiz > .container')
+    },
 
-    startQuiz: function(settings) {
-        PersonalityQuiz.config = {
-            jsonURL: siteUrl + '/wp-content/themes/underscore/json/personality.json',
-            itemSelected: '.quiz-container > .item.selected'
-        }
-        $.extend(PersonalityQuiz.config, settings);
+    startQuiz: function(config) {
+
+        $.extend(PersonalityQuiz.config, config);
 
         // grab the json file
         PersonalityQuiz.getData();
-        PersonalityQuiz.finalScore();
 
         // execute bindUI() once the ajax is complete
         $(document).ajaxComplete(function() {
             PersonalityQuiz.bindUI();
+            PersonalityQuiz.finalScore();
         });
 
 
@@ -62,18 +64,27 @@ var PersonalityQuiz = {
             html: targetArray.join("")
         }).appendTo(container);
 
-        $('<div>', {
-            'id': 'info'
+        $('<button>', {
+            'id': 'submitScore',
+            'class': 'btn btn-primary disabled',
+            'type': 'button',
+            'text': 'Submit'
         }).appendTo(container);
 
-        $('<div>', {
-            'id': 'score'
-        }).appendTo(container);
+        // $('<div>', {
+        //     'id'    : 'info'
+        // }).appendTo(container);
+
+        // $('<div>', {
+        //     'id'    : 'score'
+        // }).appendTo(container);
 
     },
     bindUI: function() {
 
         var item = $('.quiz-container > .item');
+        // var submitBtn = PersonalityQuiz.config.submitBtn;
+        var submitBtn = $('#submitScore');
 
         item.on('click', function() {
 
@@ -83,9 +94,12 @@ var PersonalityQuiz = {
             if (itemChecked.length) {
 
                 if (itemChecked.length === 4) {
+                    submitBtn.removeClass('disabled');
                     $(item).not('.selected').css('pointer-events', 'none');
+
                 } else {
                     $(item).css('pointer-events', 'auto');
+                    submitBtn.addClass('disabled');
                 }
 
             }
@@ -105,8 +119,17 @@ var PersonalityQuiz = {
     },
     finalScore: function() {
         var submitScore = $('#submitScore');
-        $(submitScore).click(function() {
+        var container = $('#personality-quiz > .container');
+        PersonalityQuiz.config.container.addClass('test');
+        // var submitScore = PersonalityQuiz.config.submitBtn;
+        $(submitScore).click(function(event) {
+            event.preventDefault();
             PersonalityQuiz.countScore();
+
+            $('<div>', {
+                'id': 'result'
+            }).appendTo('#page');
+
         });
     }
 
@@ -119,6 +142,8 @@ var PersonalityQuiz = {
 
     $(document).ready(function() {
         PersonalityQuiz.startQuiz();
+
+
     });
 
 

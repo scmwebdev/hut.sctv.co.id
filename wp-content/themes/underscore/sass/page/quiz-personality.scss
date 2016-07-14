@@ -18,3 +18,21 @@
         }
     }
 }
+
+@include keyframes(slide-down) {
+    0% {
+        top: -999px;
+    }
+    90% {
+        top: 0;
+    }
+}
+
+#result {
+    position: absolute;
+    background-color: $color__primary;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    animation: slide-down .5s 1 ease-in-out;
+}
