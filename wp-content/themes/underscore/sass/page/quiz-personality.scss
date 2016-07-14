@@ -29,8 +29,10 @@
 }
 
 #result {
+    @include spacepad(2em);
     position: absolute;
     background-color: $color__primary;
+    color: #fff;
     width: 100%;
     top: 0;
     height: 100%;

@@ -12935,7 +12935,8 @@ return jQuery;
 
 var PersonalityQuiz = {
     'config': {
-        jsonURL: siteUrl + '/wp-content/themes/underscore/json/personality.json',
+        sinetronJSON: siteUrl + '/wp-content/themes/underscore/json/sinetron.json',
+        personalityJSON: siteUrl + '/wp-content/themes/underscore/json/personality.json',
         submitBtn: $('#submitScore'),
         container: $('#personality-quiz > .container')
     },
@@ -12957,22 +12958,22 @@ var PersonalityQuiz = {
     },
     getData: function() {
 
-        var jsonURL = PersonalityQuiz.config.jsonURL;
+        var sinetronJSON = PersonalityQuiz.config.sinetronJSON;
 
 
-        $.getJSON(jsonURL, { format: "json" })
+        $.getJSON(sinetronJSON, { format: "json" })
             .fail(function(jqxhr, textStatus, error) {
                 var err = textStatus + ", " + error;
                 $('#info').html(err);
             })
             .done(function(data) {
 
-                var personaArr = [];
+                var sinetronArr = [];
                 for (i = 0; i < data.length; i++) {
-                    personaArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"></div>');
+                    sinetronArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"></div>');
                 }
 
-                PersonalityQuiz.appendUI(personaArr);
+                PersonalityQuiz.appendUI(sinetronArr);
                 PersonalityQuiz.displayData();
 
             })
@@ -12995,6 +12996,7 @@ var PersonalityQuiz = {
             html: targetArray.join("")
         }).appendTo(container);
 
+        // append the submit button for the quiz
         $('<button>', {
             'id': 'submitScore',
             'class': 'btn btn-primary disabled',
@@ -13002,13 +13004,11 @@ var PersonalityQuiz = {
             'text': 'Submit'
         }).appendTo(container);
 
-        // $('<div>', {
-        //     'id'    : 'info'
-        // }).appendTo(container);
+        // append info section for error warnings or any other information
+        $('<div>', {
+            'id'    : 'info'
+        }).appendTo(container);
 
-        // $('<div>', {
-        //     'id'    : 'score'
-        // }).appendTo(container);
 
     },
     bindUI: function() {
@@ -13046,21 +13046,49 @@ var PersonalityQuiz = {
             total += parseInt(score);
 
         });
-        console.log(total);
+        return total;
     },
     finalScore: function() {
+
         var submitScore = $('#submitScore');
         var container = $('#personality-quiz > .container');
-        PersonalityQuiz.config.container.addClass('test');
-        // var submitScore = PersonalityQuiz.config.submitBtn;
+        var personalityJSON = PersonalityQuiz.config.personalityJSON;
+
         $(submitScore).click(function(event) {
             event.preventDefault();
-            PersonalityQuiz.countScore();
 
+            // count the score
+            var score = PersonalityQuiz.countScore();
+            // console.log(score);
+
+            // append the result section
             $('<div>', {
                 'id': 'result'
             }).appendTo('#page');
 
+            // get the json result
+            $.getJSON(personalityJSON, { format: "json" })
+                .fail(function(jqxhr, textStatus, error) {
+                    var err = textStatus + ", " + error;
+                    $('#info').html(err);
+                })
+                .done(function(data) {
+
+                    // var sinetronArr = [];
+                    // for (i = 0; i < data.length; i++) {
+                    //     sinetronArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"></div>');
+                    // }
+
+                    // PersonalityQuiz.appendUI(sinetronArr);
+                    // PersonalityQuiz.displayData();
+
+                })
+
+            if (score >= 20 && score < 30) {
+                $('#result').append('<div class="container"><p>you got jon snow!</p></div>');
+            } else if (score >= 30 && score < 40) {
+                $('#result').append('<div class="container"><p>you got Ned Stark!</p></div>');
+            }
         });
     }
 
@@ -13073,8 +13101,6 @@ var PersonalityQuiz = {
 
     $(document).ready(function() {
         PersonalityQuiz.startQuiz();
-
-
     });
 
 

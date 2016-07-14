@@ -1,28 +1,22 @@
 [
 	{
     "name": "Jon",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "10"
-}, {
-    "name": "Sansa",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "5"
+    "img": "/wp-content/uploads/2016/06/person.png"
 }, {
     "name": "Ned",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "8"
+    "img": "/wp-content/uploads/2016/06/person.png"
+}, {
+    "name": "Robb",
+    "img": "/wp-content/uploads/2016/06/person.png"
 }
 , {
-    "name": "Rob",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "2"
+    "name": "Danny",
+    "img": "/wp-content/uploads/2016/06/person.png"
 }
 , {
     "name": "Arya",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "4"
+    "img": "/wp-content/uploads/2016/06/person.png"
 }, {
-    "name": "Rickon",
-    "img": "/wp-content/uploads/2016/06/person.png",
-    "score": "12"
+    "name": "Sansa",
+    "img": "/wp-content/uploads/2016/06/person.png"
 }]
