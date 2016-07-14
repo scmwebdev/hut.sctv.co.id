@@ -14,3 +14,7 @@ wp-content/themes/**/src/
 
 # Ignore dist folder whithin themes files
 wp-content/themes/**/dist/
+
+# ignore excel and csv files
+wp-content/themes/**/*.xlsx
+wp-content/themes/**/*.csv
