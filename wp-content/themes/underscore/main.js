@@ -13051,7 +13051,6 @@ var PersonalityQuiz = {
     finalScore: function() {
 
         var submitScore = $('#submitScore');
-        var container = $('#personality-quiz > .container');
 
         $(submitScore).one('click', function(event) {
             event.stopPropagation();
@@ -13089,7 +13088,7 @@ var PersonalityQuiz = {
                     PersonalityQuiz.appendResult(jon);
                 } else if (score >= 30 && score < 40) {
                     PersonalityQuiz.appendResult(ned);
-                };
+                }
 
                 // PersonalityQuiz.appendUI(personaArr);
                 // PersonalityQuiz.displayData();
