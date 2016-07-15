@@ -13327,6 +13327,12 @@ var PersonalityQuiz = {
         container: $('#personality-quiz > .container')
     },
 
+    /** 
+     * #Summary: startQuiz()
+     * firstup we extend the config.
+     * then we call the getQuizData()
+     * and when the its completed do bindUI() and submitQuiz()
+     */
     startQuiz: function(config) {
 
         $.extend(PersonalityQuiz.config, config);
@@ -13334,14 +13340,22 @@ var PersonalityQuiz = {
         // grab the json file
         PersonalityQuiz.getQuizData();
 
-        // execute bindUI() once the ajax is complete
+        // execute the remaining tasks once the ajax request is complete
         $(document).ajaxComplete(function() {
             PersonalityQuiz.bindUI();
-            PersonalityQuiz.finalScore();
+            PersonalityQuiz.submitQuiz();
         });
 
 
     },
+
+    /** 
+     * #Summary: getQuizData() => appendQuizData() && displayQuizData()
+     * - first step is fetch the json files in our theme files by using $.getJSON() function
+     * - then we use for loops to grab each data in json, wrap it with html, and insert it into our array
+     * - we then create a separate function called appendUI() which will create and insert our custom DOM elements including joining our array
+     * - last step is displaying our data by calculating the width of the container, divide them with the total amount of item
+     */
     getQuizData: function() {
 
         var sinetronJSON = PersonalityQuiz.config.sinetronJSON;
@@ -13358,7 +13372,7 @@ var PersonalityQuiz = {
                     sinetronArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"><i class="fa fa-check fa-2x" aria-hidden="true"></i></div>');
                 }
 
-                PersonalityQuiz.appendUI(sinetronArr);
+                PersonalityQuiz.appendQuizData(sinetronArr);
                 PersonalityQuiz.displayQuizData();
 
             });
@@ -13373,10 +13387,13 @@ var PersonalityQuiz = {
         });
 
     },
-    appendUI: function(targetArray) {
+    appendQuizData: function(targetArray) {
 
         var container = $('#personality-quiz > div');
+
+        // set all divs inside the header to have the same height
         $('.quiz header > div').matchHeight();
+
         // append quiz content section that lists all our item
         $("<quiz-content>", {
             "class": "clearfix spacepad-15",
@@ -13390,6 +13407,13 @@ var PersonalityQuiz = {
 
 
     },
+    /**
+     * Summary: bindUI()
+     * add class 'selected' when the item is clicked
+     * and check if .item.selected is equal to 4 it will remove the .disabled class on the submit button,
+     * set the non-selected items 'pointer-events' to 'none' to prevent further (accidental) clicking
+     * or else .enable the button and set the 'pointer-events' to 'auto'
+     */
     bindUI: function() {
 
         var item = $('quiz-content > .item');
@@ -13416,7 +13440,7 @@ var PersonalityQuiz = {
         });
 
     },
-    finalScore: function() {
+    submitQuiz: function() {
 
         var submitScore = $('#submitScore');
 
@@ -13431,10 +13455,13 @@ var PersonalityQuiz = {
                 'class': 'quiz-result'
             }).appendTo('body');
 
-            PersonalityQuiz.displayResult();
+            PersonalityQuiz.getQuizResult();
         });
     },
-    displayResult: function() {
+    /**
+     * Get JSON data of the Quiz Result
+     */
+    getQuizResult: function() {
 
         var personalityJSON = PersonalityQuiz.config.personalityJSON;
 
@@ -13445,32 +13472,40 @@ var PersonalityQuiz = {
                 console.log(err);
             })
             .done(function(data) {
-                console.log('success!');
 
-                var jon = data.personality[0];
-                var ned = data.personality[1];
-                var bolton = data.personality[2];
-
-                var score = PersonalityQuiz.countScore();
-
-
-
-                console.log(score);
-                if (score >= 20 && score < 30) {
-                    PersonalityQuiz.appendResult(jon);
-                } else if (score >= 30 && score < 40) {
-                    PersonalityQuiz.appendResult(ned);
-                } else {
-                    PersonalityQuiz.appendResult(bolton);
-                }
-
-                PersonalityQuiz.removeDom();
-                // PersonalityQuiz.appendUI(personaArr);
-                // PersonalityQuiz.displayData();
+                //process the result
+                PersonalityQuiz.processQuizResult();
 
             });
     },
-    countScore: function() {
+    /**
+     * Create a variables to hold each individual array
+     * and use if/else to determine the result based on the score
+     * once thats done, execute removeDOM() to remove the elements
+     */
+    processQuizResult: function() {
+
+        var score = PersonalityQuiz.calculateScore();
+
+        var jon = data.personality[0];
+        var ned = data.personality[1];
+        var bolton = data.personality[2];
+
+        if (score >= 20 && score < 30) {
+            PersonalityQuiz.displayQuizResult(jon);
+        } else if (score >= 30 && score < 40) {
+            PersonalityQuiz.displayQuizResult(ned);
+        } else {
+            PersonalityQuiz.displayQuizResult(bolton);
+        }
+
+        PersonalityQuiz.removeDom();
+
+    },
+    /**
+     * Calculate score by reading the attr 'data-score' of the selected items
+     */
+    calculateScore: function() {
         var getScore = $('.item.selected');
         var total = 0;
         $.each(getScore, function() {
@@ -13481,7 +13516,11 @@ var PersonalityQuiz = {
         });
         return total;
     },
-    appendResult: function(persona) {
+    /**
+     * @param receives a parameter that holds each individual json data (e.g jon, ned). this variables are created at getQuizResult()
+     * Wrap our Quiz Result json data with HTML and append it onto the page with the appropriate ID
+     */
+    displayQuizResult: function(persona) {
 
         var resultContainer = $('.quiz-result');
         var resultID = persona.name.replace(/\s/g, '-').toLowerCase();
@@ -13490,16 +13529,16 @@ var PersonalityQuiz = {
 
         resultContainer.attr('id', resultID).append(html);
     },
+    /**
+     * Remove quiz header and quiz content once the quiz is submitted.
+     * additional elements can be inserted into the array if need be
+     */
     removeDom: function() {
-
         var elem = ['.quiz header', 'quiz-content'];
-        $.each(elem, function(i){
-
+        $.each(elem, function(i) {
             $(elem[i]).remove();
-
         });
     }
-
 };
 
 (function($) {
