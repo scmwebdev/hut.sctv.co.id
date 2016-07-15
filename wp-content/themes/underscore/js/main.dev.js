@@ -45,7 +45,7 @@ var PersonalityQuiz = {
                 PersonalityQuiz.appendUI(sinetronArr);
                 PersonalityQuiz.displayData();
 
-            })
+            });
     },
     displayData: function() {
 
@@ -54,7 +54,7 @@ var PersonalityQuiz = {
         var totalItem = itemPersona.length;
         $(itemPersona).css('width', function() {
             return itemContainer / totalItem + 'px';
-        })
+        });
 
     },
     appendUI: function(targetArray) {
@@ -75,7 +75,7 @@ var PersonalityQuiz = {
 
         // append info section for error warnings or any other information
         $('<div>', {
-            'id'    : 'info'
+            'id': 'info'
         }).appendTo(container);
 
 
@@ -121,44 +121,58 @@ var PersonalityQuiz = {
 
         var submitScore = $('#submitScore');
         var container = $('#personality-quiz > .container');
-        var personalityJSON = PersonalityQuiz.config.personalityJSON;
 
-        $(submitScore).click(function(event) {
-            event.preventDefault();
+        $(submitScore).one('click', function(event) {
+            event.stopPropagation();
 
-            // count the score
-            var score = PersonalityQuiz.countScore();
-            // console.log(score);
+            $(this).addClass('disabled'); //disabled the submit button
+            $('.item').css('pointer-events', 'none'); //disable the item once its submitted
 
             // append the result section
             $('<div>', {
-                'id': 'result'
+                'class': 'quiz-result'
             }).appendTo('#page');
 
-            // get the json result
-            $.getJSON(personalityJSON, { format: "json" })
-                .fail(function(jqxhr, textStatus, error) {
-                    var err = textStatus + ", " + error;
-                    $('#info').html(err);
-                })
-                .done(function(data) {
-
-                    // var sinetronArr = [];
-                    // for (i = 0; i < data.length; i++) {
-                    //     sinetronArr.push('<div class="item" data-score="' + data[i].score + '"><img class="img-responsive full-width" src="' + siteUrl + data[i].img + '"></div>');
-                    // }
-
-                    // PersonalityQuiz.appendUI(sinetronArr);
-                    // PersonalityQuiz.displayData();
-
-                })
-
-            if (score >= 20 && score < 30) {
-                $('#result').append('<div class="container"><p>you got jon snow!</p></div>');
-            } else if (score >= 30 && score < 40) {
-                $('#result').append('<div class="container"><p>you got Ned Stark!</p></div>');
-            }
+            PersonalityQuiz.displayResult();
         });
+    },
+    displayResult: function() {
+
+        var personalityJSON = PersonalityQuiz.config.personalityJSON;
+
+        $.getJSON(personalityJSON, { format: "json" })
+            .fail(function(jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                $('#info').html(err);
+                console.log(err);
+            })
+            .done(function(data) {
+                console.log('success!');
+
+                var jon = data.personality[0];
+                var ned = data.personality[1];
+
+                var score = PersonalityQuiz.countScore();
+
+                if (score >= 20 && score < 30) {
+                    PersonalityQuiz.appendResult(jon);
+                } else if (score >= 30 && score < 40) {
+                    PersonalityQuiz.appendResult(ned);
+                };
+
+                // PersonalityQuiz.appendUI(personaArr);
+                // PersonalityQuiz.displayData();
+
+            });
+    },
+    appendResult: function(persona) {
+
+        var resultContainer = $('.quiz-result');
+        var resultID = persona.name.replace(/\s/g, '-').toLowerCase();
+        
+        var html = '<section class=container><h2 class="title result-title">Your personality is...</h2><div class="col-sm-4 col-xs-12 result-img"><img alt="image - '+ persona.name +'"src="'+ siteUrl + persona.img +'"></div><h1 class="title result-name">'+ persona.name +'!</h1><p class=result-desc>'+ persona.desc +'</section>';
+
+        resultContainer.attr('id', resultID).append(html);
     }
 
 };
@@ -166,7 +180,6 @@ var PersonalityQuiz = {
 (function($) {
 
     console.log('forbidden lover');
-
 
     $(document).ready(function() {
         PersonalityQuiz.startQuiz();

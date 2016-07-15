@@ -1,22 +1,14 @@
-[
-	{
-    "name": "Jon",
-    "img": "/wp-content/uploads/2016/06/person.png"
-}, {
-    "name": "Ned",
-    "img": "/wp-content/uploads/2016/06/person.png"
-}, {
-    "name": "Robb",
-    "img": "/wp-content/uploads/2016/06/person.png"
+{
+  "personality":[
+    {
+      "name":"Jon Snow",
+      "img":"/wp-content/uploads/2016/06/person.png",
+      "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu dignissim libero, sed molestie magna. Cras volutpat semper gravida. Aenean eleifend, justo et pulvinar tincidunt, mi urna faucibus lectus, eget pharetra felis justo eget ante. In tellus odio, volutpat eget tortor eu, placerat consequat ante. Ut sit amet aliquet ex. Donec molestie efficitur commodo. Integer aliquam lorem ut rutrum porttitor. Curabitur placerat dictum quam ut pulvinar. Sed imperdiet venenatis euismod"
+    },
+    {
+      "name":"Ned Stark",
+      "img":"/wp-content/uploads/2016/06/person.png",
+      "desc":"Mauris ut euismod metus. Etiam consequat pulvinar justo in commodo. Pellentesque aliquet elit vehicula felis venenatis, id lacinia augue mollis. Phasellus ipsum neque, dictum non est id, euismod porta nunc. Praesent quis eleifend nunc. Cras sollicitudin mattis lobortis. Praesent sed diam lacus. Duis vehicula eu orci ut convallis. Sed at purus eget quam consectetur maximus. Nullam convallis venenatis velit sit amet pharetra. Vivamus a auctor purus. Donec feugiat augue orci, id tempus enim mattis vitae. Proin viverra nisl id mi bibendum vulputate. Vestibulum non laoreet urna. In dictum eros sit amet est eleifend pretium. "
+    }
+  ]
 }
-, {
-    "name": "Danny",
-    "img": "/wp-content/uploads/2016/06/person.png"
-}
-, {
-    "name": "Arya",
-    "img": "/wp-content/uploads/2016/06/person.png"
-}, {
-    "name": "Sansa",
-    "img": "/wp-content/uploads/2016/06/person.png"
-}]

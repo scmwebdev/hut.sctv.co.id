@@ -28,8 +28,9 @@
     }
 }
 
-#result {
+.quiz-result {
     @include spacepad(2em);
+    @include clearfix();
     position: absolute;
     background-color: $color__primary;
     color: #fff;
@@ -37,4 +38,26 @@
     top: 0;
     height: 100%;
     animation: slide-down .5s 1 ease-in-out;
+    .result {
+        &-img {
+            float: left;
+            @include breakpoint(sm) {
+                padding-left: 0;
+            }
+        }
+        &-title,
+        &-desc,
+        &-name {
+            text-align: center;
+            @include breakpoint(sm) {
+                text-align: left;
+            }
+        }
+        &-name {
+            @include font-size(8);
+        }
+        &-desc {
+            @include font-size(2);
+        }
+    }
 }
