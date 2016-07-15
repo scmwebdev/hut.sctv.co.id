@@ -49,7 +49,7 @@ var PersonalityQuiz = {
     },
     displayData: function() {
 
-        var itemPersona = $('.quiz-container > .item');
+        var itemPersona = $('.desktop .quiz-container > .item');
         var itemContainer = $('.quiz-container').width();
         var totalItem = itemPersona.length;
         $(itemPersona).css('width', function() {
@@ -59,7 +59,7 @@ var PersonalityQuiz = {
     },
     appendUI: function(targetArray) {
 
-        var container = $('#personality-quiz .container');
+        var container = $('#personality-quiz .container-fluid');
         $("<div>", {
             "class": "quiz-container clearfix spacepad-15",
             html: targetArray.join("")
@@ -86,8 +86,8 @@ var PersonalityQuiz = {
         // var submitBtn = PersonalityQuiz.config.submitBtn;
         var submitBtn = $('#submitScore');
 
-        item.on('click', function() {
-
+        item.on('click', function(evt) {
+            evt.stopPropagation();
             $(this).toggleClass('selected');
 
             var itemChecked = $('.item.selected');
@@ -130,7 +130,7 @@ var PersonalityQuiz = {
             // append the result section
             $('<div>', {
                 'class': 'quiz-result'
-            }).appendTo('#page');
+            }).appendTo('body');
 
             PersonalityQuiz.displayResult();
         });
@@ -150,6 +150,7 @@ var PersonalityQuiz = {
 
                 var jon = data.personality[0];
                 var ned = data.personality[1];
+                var bolton = data.personality[2];
 
                 var score = PersonalityQuiz.countScore();
 
@@ -157,6 +158,8 @@ var PersonalityQuiz = {
                     PersonalityQuiz.appendResult(jon);
                 } else if (score >= 30 && score < 40) {
                     PersonalityQuiz.appendResult(ned);
+                } else {
+                    PersonalityQuiz.appendResult(bolton);
                 }
 
                 // PersonalityQuiz.appendUI(personaArr);
@@ -169,7 +172,7 @@ var PersonalityQuiz = {
         var resultContainer = $('.quiz-result');
         var resultID = persona.name.replace(/\s/g, '-').toLowerCase();
         
-        var html = '<section class=container><h2 class="title result-title">Your personality is...</h2><div class="col-sm-4 col-xs-12 result-img"><img alt="image - '+ persona.name +'"src="'+ siteUrl + persona.img +'"></div><h1 class="title result-name">'+ persona.name +'!</h1><p class=result-desc>'+ persona.desc +'</section>';
+        var html = '<section class=container><h2 class="title result-title spacepad-15">Your personality is...</h2><div class="col-sm-4 col-xs-12 result-img"><img alt="image - '+ persona.name +'"src="'+ siteUrl + persona.img +'"></div><h1 class="title result-name">'+ persona.name +'!</h1><p class=result-desc>'+ persona.desc +'</section>';
 
         resultContainer.attr('id', resultID).append(html);
     }

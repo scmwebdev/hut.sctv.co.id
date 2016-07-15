@@ -9,6 +9,11 @@
       "name":"Ned Stark",
       "img":"/wp-content/uploads/2016/06/person.png",
       "desc":"Mauris ut euismod metus. Etiam consequat pulvinar justo in commodo. Pellentesque aliquet elit vehicula felis venenatis, id lacinia augue mollis. Phasellus ipsum neque, dictum non est id, euismod porta nunc. Praesent quis eleifend nunc. Cras sollicitudin mattis lobortis. Praesent sed diam lacus. Duis vehicula eu orci ut convallis. Sed at purus eget quam consectetur maximus. Nullam convallis venenatis velit sit amet pharetra. Vivamus a auctor purus. Donec feugiat augue orci, id tempus enim mattis vitae. Proin viverra nisl id mi bibendum vulputate. Vestibulum non laoreet urna. In dictum eros sit amet est eleifend pretium. "
+    },
+    {
+      "name":"Ramsey Bolton",
+      "img":"/wp-content/uploads/2016/06/person.png",
+      "desc":"Praesent rhoncus finibus leo non molestie. Cras felis nulla, tempor at dui a, finibus pulvinar nibh. Nam pharetra faucibus magna, at ornare mi feugiat nec. Nunc congue ipsum non augue sagittis scelerisque. Curabitur eget accumsan sapien. In vitae aliquet neque. Fusce sit amet eleifend ex. "
     }
   ]
 }

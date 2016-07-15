@@ -1,5 +1,4 @@
-[
-	{
+[{
     "name": "Stark",
     "img": "/wp-content/uploads/2016/06/person.png",
     "score": "10"
@@ -11,13 +10,55 @@
     "name": "Greyjoy",
     "img": "/wp-content/uploads/2016/06/person.png",
     "score": "8"
-}
-, {
+}, {
     "name": "Targaryen",
     "img": "/wp-content/uploads/2016/06/person.png",
     "score": "2"
-}
-, {
+}, {
+    "name": "Lannister",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Glover",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Mormont",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Bolton",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Tully",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Greyjoy",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "8"
+}, {
+    "name": "Targaryen",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "2"
+}, {
+    "name": "Lannister",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Glover",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Mormont",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
+    "name": "Bolton",
+    "img": "/wp-content/uploads/2016/06/person.png",
+    "score": "4"
+}, {
     "name": "Tully",
     "img": "/wp-content/uploads/2016/06/person.png",
     "score": "4"

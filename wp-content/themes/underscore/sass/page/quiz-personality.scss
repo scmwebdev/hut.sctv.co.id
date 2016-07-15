@@ -2,12 +2,16 @@
  * Page - Quiz Personality
  */
 
+.mobile .item {
+    @extend .col-xs-6;
+}
+
 #personality-quiz {
     .item {
         // min-height: 200px;
         float: left;
         position: relative;
-        min-width: 180px;
+        // min-width: 180px;
         @include transition(.2s);
         @include breakpoint(md) {
             min-width: 250px;
@@ -30,12 +34,13 @@
 
 .quiz-result {
     @include spacepad(2em);
-    @include clearfix();
-    position: absolute;
+    // @include clearfix();
     background-color: $color__primary;
     color: #fff;
     width: 100%;
+    position: absolute;
     top: 0;
+    left: 0;
     height: 100%;
     animation: slide-down .5s 1 ease-in-out;
     .result {
