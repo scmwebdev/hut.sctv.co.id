@@ -45,6 +45,7 @@ var filesToMove = [
 var jsFiles = [
     basePaths.npm + 'jquery/dist/jquery.js',
     basePaths.npm + 'fastclick/lib/*.js',
+    basePaths.npm + 'jquery-match-height/dist/jquery.matchHeight.js',
     module.slick + 'slick.js',
     'js/main.dev.js'
 ]

@@ -8,17 +8,26 @@
 
 #personality-quiz {
     .item {
-        // min-height: 200px;
         float: left;
         position: relative;
-        // min-width: 180px;
         @include transition(.2s);
         @include breakpoint(md) {
-            min-width: 250px;
+            min-width: 160px;
         }
-        top: 0;
+        .fa {
+            position: absolute;
+            z-index: 10;
+            right: 1em;
+            bottom: 1em;
+            color: #1adc35;
+            fill: #fff;
+            @include scale(0);
+            @include transition(.2s);
+        }
         &.selected {
-            top: -40px;
+            .fa {
+                @include scale(1.5);
+            }
         }
     }
 }
@@ -34,15 +43,16 @@
 
 .quiz-result {
     @include spacepad(2em);
-    // @include clearfix();
     background-color: $color__primary;
     color: #fff;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
     animation: slide-down .5s 1 ease-in-out;
+    @include breakpoint(sm) {
+        height: 100%;
+    }
     .result {
         &-img {
             float: left;
@@ -65,4 +75,24 @@
             @include font-size(2);
         }
     }
+}
+
+#submitScore {
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.disabled {
+    @extend .disabled;
+    pointer-events: none;
+}
+
+.enable {
+    pointer-events: auto;
+}
+
+quiz-content,
+result {
+    display: block;
 }
