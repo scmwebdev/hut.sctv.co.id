@@ -157,7 +157,7 @@ var PersonalityQuiz = {
             .done(function(data) {
 
                 //process the result
-                PersonalityQuiz.processQuizResult();
+                PersonalityQuiz.processQuizResult(data);
 
             });
     },
@@ -166,7 +166,7 @@ var PersonalityQuiz = {
      * and use if/else to determine the result based on the score
      * once thats done, execute removeDOM() to remove the elements
      */
-    processQuizResult: function() {
+    processQuizResult: function(data) {
 
         var score = PersonalityQuiz.calculateScore();
 
