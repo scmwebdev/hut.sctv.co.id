@@ -7,6 +7,8 @@
  * @package HUT_SCTV_Underscore
  */
 
+
+
 if ( ! function_exists( 'hut_sctv_underscore_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -136,3 +138,163 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/* ==================================================================
+ * Additional Image Sizes
+ * ================================================================== */
+
+add_image_size( 'fullsize', 1200, 600, true);
+add_image_size( 'halfsize', 600, 600, true);
+add_image_size( 'thumb', 400, 250, true);
+
+// add_image_size( 'mainBanner_md', 992, 400, true);
+// add_image_size( 'mainBanner_xs', 600, 600, true);
+// add_image_size( 'video_thumb', 400, 250, hard);
+// add_image_size( 'article_thumb', 250, 250, hard);
+// add_image_size( 'logo', 200, 200, hard);
+
+/* ==================================================================
+ * Display child pages list
+ * ================================================================== */
+
+function wpb_list_child_pages() { 
+
+global $post; 
+if ( is_page() && $post->post_parent )
+  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+else
+  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+if ( $childpages ) {
+  $string = '<ul class="content-list list-parent __nodots __nopaddingleft __normarginleft">' . $childpages . '</ul>';
+}
+return $string;
+}
+
+add_shortcode('wpb_childpages', 'wpb_list_child_pages');
+
+/* ==================================================================
+ * Add the_slug() function
+ * ================================================================== */
+
+function the_slug($echo=true){
+  $slug = basename(get_permalink());
+  do_action('before_slug', $slug);
+  $slug = apply_filters('slug_filter', $slug);
+  if( $echo ) echo $slug;
+  do_action('after_slug', $slug);
+  return $slug;
+}
+
+/* ==================================================================
+ * Custom Pagination
+ * ================================================================== */
+
+function custom_pagination($numpages = '', $pagerange = '', $paged='') {
+
+  if (empty($pagerange)) {
+    $pagerange = 2;
+  }
+
+  /**
+   * This first part of our function is a fallback
+   * for custom pagination inside a regular loop that
+   * uses the global $paged and global $wp_query variables.
+   * 
+   * It's good because we can now override default pagination
+   * in our theme, and use this function in default quries
+   * and custom queries.
+   */
+  global $paged;
+  if (empty($paged)) {
+    $paged = 1;
+  }
+  if ($numpages == '') {
+    global $wp_query;
+    $numpages = $wp_query->max_num_pages;
+    if(!$numpages) {
+        $numpages = 1;
+    }
+  }
+
+  /** 
+   * We construct the pagination arguments to enter into our paginate_links
+   * function. 
+   */
+  $pagination_args = array(
+    'base'            => get_pagenum_link(1) . '%_%',
+    'format'          => 'page/%#%',
+    'total'           => $numpages,
+    'current'         => $paged,
+    'show_all'        => False,
+    'end_size'        => 1,
+    'mid_size'        => $pagerange,
+    'prev_next'       => True,
+    'prev_text'       => __('&laquo;'),
+    'next_text'       => __('&raquo;'),
+    'type'            => 'plain',
+    'add_args'        => false,
+    'add_fragment'    => ''
+  );
+
+  $paginate_links = paginate_links($pagination_args);
+
+  if ($paginate_links) {
+    echo '<nav class="custom-pagination col-xs-12 text-center spacepad">';
+      //echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+      echo $paginate_links;
+    echo "</nav>";
+  }
+
+}
+
+/* ==================================================================
+ * Remove P tags - ACF
+ * ================================================================== */
+
+remove_filter ('acf_the_content', 'wpautop');
+
+/* 
+ * Embed vidio.com url from its url 
+ */
+
+function video_custom($title = '') {
+
+	$getVideo = get_field('video');
+	$video = str_replace('player_only=false', 'player_only=true', $getVideo);
+	if ($video) {
+
+		return $video;
+		// echo '<div class="article-video spacepad-20">';
+		// echo '<h3 class="subtitle">' . $title . '</h3>';
+		// echo $video;
+		// echo '</div>';
+	}
+	
+}
+
+// display custom excerpt with
+function custom_excerpt($charLimit) {
+
+	$excerpt = get_the_excerpt();
+	$content = get_the_content();
+	$readmore = ' ...';
+
+	if($content) {
+		$new_excerpt = substr($excerpt, 0, $charLimit) . $readmore;
+		return $new_excerpt;
+	}
+}
+
+// Fetch category and outputs it
+function fetch_category($classPrefix) {
+	$categories = get_the_category();
+	foreach ($categories as $cat ) {
+		$category = strtolower($cat->name);
+		//spacing at the end is required
+		$output = $classPrefix . '-' . $category . ' ';
+		echo $output;
+	}
+	
+};
+
+include 'inc/module/mainbanner.module.php';

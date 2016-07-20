@@ -13315,6 +13315,24 @@ return jQuery;
 
 }));
 
+var mainbanner = (function() {
+
+    var slickify = function(target) {
+        $(target).slick(); 
+    };
+
+    return {
+    	slickify: slickify
+    };
+    
+}());
+
+$(document).ready(function() {
+
+	//instantiate slick carousel to main banner
+	mainbanner.slickify('.main-banner');
+
+});
 /**
  * Main JS
  */
@@ -13543,7 +13561,6 @@ var PersonalityQuiz = {
 
 (function($) {
 
-    console.log('forbidden lover');
 
     $(document).ready(function() {
         PersonalityQuiz.startQuiz();
@@ -13551,3 +13568,9 @@ var PersonalityQuiz = {
 
 
 })(jQuery);
+
+var page = (function(){
+
+    console.log('Hontou no Oto');
+
+}());

@@ -47,6 +47,7 @@ var jsFiles = [
     basePaths.npm + 'fastclick/lib/*.js',
     basePaths.npm + 'jquery-match-height/dist/jquery.matchHeight.js',
     module.slick + 'slick.js',
+    'js/module/*.js',
     'js/main.dev.js'
 ]
 /* ========================================================
@@ -138,7 +139,7 @@ gulp.task('slicky', function() {
 
     // move ajax loader to custom themes folder
     var slickAjaxLoader = gulp.src(module.slick + 'ajax-loader.gif')
-        .pipe(gulp.dest(basePaths.root));
+        .pipe(gulp.dest(basePaths.theme));
 
     //merge tasks
     return merge(slickFont, slickStyle, slickAjaxLoader);
