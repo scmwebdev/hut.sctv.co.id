@@ -12,7 +12,10 @@
 		<main id="main" class="site-main" role="main">
 			<div class="container-fluid no-spacepad-side">
 				<section class="main-banner">
-			    	<?php get_mainbanner() ?>
+			    	<?php 
+			    		$frontpage = new Page();
+			    		$frontpage->display_banner();
+			    	?>
 				</section>
 			</div>
 		</main>

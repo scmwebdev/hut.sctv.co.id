@@ -7,7 +7,7 @@
  * @package HUT_SCTV_Underscore
  */
 
-
+include 'inc/module/mainbanner.module.php';
 
 if ( ! function_exists( 'hut_sctv_underscore_setup' ) ) :
 /**
@@ -297,4 +297,4 @@ function fetch_category($classPrefix) {
 	
 };
 
-include 'inc/module/mainbanner.module.php';
+
