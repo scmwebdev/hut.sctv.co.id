@@ -28,6 +28,13 @@
 			<?php get_show_schedule(); ?>
 		</section>
 		<section class="" id="video-on-demand">
+			<div class="container-fluid">
+					<?php 
+						$vod = new Vidio();	
+						$vod->display_latest();
+					?>
+			</div>
+
 		</section>
 		<section class="" id="sponsor">
 		</section>

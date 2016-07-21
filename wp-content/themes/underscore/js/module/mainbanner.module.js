@@ -36,7 +36,7 @@ $(document).ready(function() {
 
         return {
             countShow: countShow,
-            adjustWidth: adjustWidth
+            responsiveContent: responsiveContent
         }
 
     }());

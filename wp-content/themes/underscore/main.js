@@ -13315,31 +13315,21 @@ return jQuery;
 
 }));
 
-// $(document).ready(function() {
-
-
-// 	$('#show-schedule').slick({
-// 		slidesToShow: 4,
-// 	});
-
-
-// });
-
 /**
- * Create a func that counts how many selected DOM on the doc
- * and adjust the css based on how many content
+ * Create a func that counts how many selected DOM on the document
+ * and use the slick plugin properties to adjust how many contents
+ * should be displayed.
  */
 $(document).ready(function() {
 
     var showSchedule = (function() {
 
         var show = $('.show');
-
         var countShow = function() {
             return show.length;
         };
 
-        var adjustWidth = function() {
+        var responsiveContent = function() {
 
             var total = countShow();
             $('#show-schedule').slick({
@@ -13358,19 +13348,17 @@ $(document).ready(function() {
                         slidesToScroll: 1
                     }
                 }]
-
             });
-
         }
 
         return {
             countShow: countShow,
-            adjustWidth: adjustWidth
+            responsiveContent: responsiveContent
         }
 
     }());
 
-    showSchedule.adjustWidth();
+    showSchedule.responsiveContent();
 
 });
 
@@ -13610,8 +13598,23 @@ var PersonalityQuiz = {
 
 })(jQuery);
 
-var page = (function(){
+var page = (function() {
 
     console.log('Hontou no Oto');
 
+    function vidio_latest() {
+        var vidio = $('#video-on-demand > div');
+        vidio.slick({
+        	slidesToShow: 3
+        });
+    }
+
+    return {
+    	vidio_latest:vidio_latest
+    }
+
 }());
+
+$(document).ready(function() {
+	page.vidio_latest();
+});

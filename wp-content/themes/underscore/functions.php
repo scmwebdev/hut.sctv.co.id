@@ -8,6 +8,7 @@
  */
 
 include 'inc/module/mainbanner.class.php';
+include 'inc/module/vidio.class.php';
 
 if ( ! function_exists( 'hut_sctv_underscore_setup' ) ) :
 /**
@@ -257,20 +258,7 @@ remove_filter ('acf_the_content', 'wpautop');
  * Embed vidio.com url from its url 
  */
 
-function video_custom($title = '') {
 
-	$getVideo = get_field('video');
-	$video = str_replace('player_only=false', 'player_only=true', $getVideo);
-	if ($video) {
-
-		return $video;
-		// echo '<div class="article-video spacepad-20">';
-		// echo '<h3 class="subtitle">' . $title . '</h3>';
-		// echo $video;
-		// echo '</div>';
-	}
-	
-}
 
 // display custom excerpt with
 function custom_excerpt($charLimit) {
@@ -333,7 +321,4 @@ function get_show_schedule() {
 	}
 
 	wp_reset_postdata();
-
 }
-
-
