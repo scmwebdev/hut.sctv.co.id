@@ -12,10 +12,15 @@
 		<main id="main" class="site-main" role="main">
 			<div class="container-fluid no-spacepad-side">
 				<section class="main-banner">
-			    	<?php 
-			    		$frontpage = new Page();
-			    		$frontpage->display_banner();
-			    	?>
+					<?php 
+
+						if ( have_posts() ) : while ( have_posts() ) : the_post();
+							the_content();
+						endwhile;
+						endif;
+
+					 ?>
+
 				</section>
 			</div>
 		</main>

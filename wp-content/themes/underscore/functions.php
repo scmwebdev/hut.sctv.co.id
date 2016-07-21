@@ -7,7 +7,7 @@
  * @package HUT_SCTV_Underscore
  */
 
-include 'inc/module/mainbanner.module.php';
+include 'inc/module/mainbanner.class.php';
 
 if ( ! function_exists( 'hut_sctv_underscore_setup' ) ) :
 /**

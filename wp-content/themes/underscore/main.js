@@ -13330,7 +13330,7 @@ var mainbanner = (function() {
 $(document).ready(function() {
 
 	//instantiate slick carousel to main banner
-	mainbanner.slickify('.main-banner');
+	// mainbanner.slickify('.main-banner');
 
 });
 /**

@@ -1,0 +1,12 @@
+/**
+ * Front Page Styling
+ */
+
+.frontpage .main-banner {
+
+	$desktop_height: 600px;
+
+	overflow: hidden;
+	// max-height: $desktop_height;
+	height: calc(100% - 3em);
+}

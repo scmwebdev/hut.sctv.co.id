@@ -23,11 +23,12 @@ var style = {
     vendor: basePaths.style + 'vendor/'
 }
 
-// paths for npm modules
+// paths for npm & bower modules
 var module = {
     slick: basePaths.npm + 'slick-carousel/slick/',
     fontawesome: basePaths.npm + 'slick-carousel/font-awesome/',
-    bootstrap: basePaths.npm + 'bootstrap-sass/assets/'
+    bootstrap: basePaths.npm + 'bootstrap-sass/assets/',
+    enquire: basePaths.bower + 'enquire/'
 }
 
 // paths for the dist folder
@@ -47,6 +48,7 @@ var jsFiles = [
     basePaths.npm + 'fastclick/lib/*.js',
     basePaths.npm + 'jquery-match-height/dist/jquery.matchHeight.js',
     module.slick + 'slick.js',
+    module.enquire + 'enquire.js',
     'js/module/*.js',
     'js/main.dev.js'
 ]
@@ -145,6 +147,7 @@ gulp.task('slicky', function() {
     return merge(slickFont, slickStyle, slickAjaxLoader);
 
 });
+
 
 gulp.task('utility', ['bootstrap', 'slicky', 'font-awesome']);
 
