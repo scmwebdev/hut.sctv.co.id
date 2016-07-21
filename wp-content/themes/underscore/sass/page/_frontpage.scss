@@ -2,11 +2,25 @@
  * Front Page Styling
  */
 
-.frontpage .main-banner {
 
-	$desktop_height: 600px;
+.frontpage #show-schedule {
 
-	overflow: hidden;
-	// max-height: $desktop_height;
-	height: calc(100% - 3em);
+	background-color: #eee;
+	@include spacepad(15px);
+
+	.show {
+		width: calc(100% - 90%);
+	}
+	.show-title,
+	.show-desc {
+		text-align: center;
+		font-weight: 600;
+	}
+	.show-title {
+		font-size: 1.2em;
+	}
+	.show-desc {
+		font-size: 90%;
+		
+	}
 }

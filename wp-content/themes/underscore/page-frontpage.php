@@ -25,6 +25,7 @@
 			</div>
 		</main>
 		<section class="" id="show-schedule">
+			<?php get_show_schedule(); ?>
 		</section>
 		<section class="" id="video-on-demand">
 		</section>

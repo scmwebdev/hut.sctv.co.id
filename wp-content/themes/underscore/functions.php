@@ -297,4 +297,43 @@ function fetch_category($classPrefix) {
 	
 };
 
+/** 
+ * Fetch and Display schedule
+ */
+function get_show_schedule() {
+
+	//set our filter
+	$args = array(
+		'post_type' => 'post',
+		'cat' => 3,
+	);
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) { 
+		while ($query->have_posts()) {
+			$query->the_post();
+
+			//get our attr
+			$date = get_field('date');
+			$time = get_field('time');
+			$title = get_the_title();
+
+			//create the html template
+			$html  = '<div class="show">';
+			$html .= '<div class="show-title">'. $title .'</div>';
+			$html .= '<div class="show-desc"><span class="show-time">'. $time .' WIB</span>';
+			$html .= '<span> | </span>';
+			$html .= '<span class="show-date">'. $date .'</span></div>';
+			$html .= '</div>'; 
+
+			//display it
+			echo $html;
+			
+		}
+	}
+
+	wp_reset_postdata();
+
+}
+
 
