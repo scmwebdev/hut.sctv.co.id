@@ -23,4 +23,4 @@ wp-content/themes/**/*.csv
 bower_components/
 
 # ignore npm files
-# node_modules/
+node_modules/
