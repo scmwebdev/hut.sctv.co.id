@@ -1,28 +1,18 @@
-// $(document).ready(function() {
-
-
-// 	$('#show-schedule').slick({
-// 		slidesToShow: 4,
-// 	});
-
-
-// });
-
 /**
- * Create a func that counts how many selected DOM on the doc
- * and adjust the css based on how many content
+ * Create a func that counts how many selected DOM on the document
+ * and use the slick plugin properties to adjust how many contents
+ * should be displayed.
  */
 $(document).ready(function() {
 
     var showSchedule = (function() {
 
         var show = $('.show');
-
         var countShow = function() {
             return show.length;
         };
 
-        var adjustWidth = function() {
+        var responsiveContent = function() {
 
             var total = countShow();
             $('#show-schedule').slick({
@@ -41,9 +31,7 @@ $(document).ready(function() {
                         slidesToScroll: 1
                     }
                 }]
-
             });
-
         }
 
         return {
@@ -53,6 +41,6 @@ $(document).ready(function() {
 
     }());
 
-    showSchedule.adjustWidth();
+    showSchedule.responsiveContent();
 
 });
