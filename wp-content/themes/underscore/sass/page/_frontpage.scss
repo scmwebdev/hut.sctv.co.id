@@ -4,7 +4,7 @@
 
 .frontpage {
     #show-schedule,
-    #video-on-demand {
+    #video-on-demand, {
         @include breakpoint(sm) {
             @include spacemar(3vh);
             @include spacemar(3em);
@@ -18,7 +18,7 @@
  */
 
 .frontpage .underbanner {
-    @include spacepad(6em);
+    @include spacepad(4em);
 }
 
 

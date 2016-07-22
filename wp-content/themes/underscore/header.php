@@ -24,7 +24,7 @@ var siteUrl = '<?php echo site_url(); ?>';
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="background: url('<?php echo site_url()?>/wp-content/uploads/2016/07/site_bg.jpg') no-repeat;background-position-y: -120%;no-repeat;background-size: cover;">
 <div id="page" class="site <?php (is_mobile()) ? 'mobile' : 'desktop';?>">
 	<!-- #masthead -->
 	<header id="masthead" class="site-header" role="banner">

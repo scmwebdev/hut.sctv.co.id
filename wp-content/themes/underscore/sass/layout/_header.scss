@@ -10,20 +10,25 @@
 
 // custom container for the masthead
 .masthead-container {
-	@extend .container-fluid;
-	@include breakpoint(lg) {
-		width: calc(100% - 10em);
-	}
-
-	//set these elements to inherit the height of their parent
-	//so that it will looked as if its 100% height
-	#site-navigation,
-	#site-navigation > div,
-	#primary-menu {
-		height: inherit;
-	}
+    @extend .container-fluid;
+    @include breakpoint(lg) {
+        width: calc(100% - 10em);
+    }
+    //set these elements to inherit the height of their parent
+    //so that it will looked as if its 100% height
+    #site-navigation,
+    #site-navigation > div,
+    #primary-menu {
+        height: inherit;
+    }
 }
 
+// body.desktop {
+//     background: url("http://localhost/hut.sctv.co.id/wp-content/uploads/2016/07/site_bg.jpg");
+//     background-position-y: -120%;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
 
 .desktop #masthead {
     // position: fixed;
@@ -32,9 +37,5 @@
     background: url("http://localhost/hut.sctv.co.id/wp-content/uploads/2016/07/sctv26_header_bg.png");
     background-size: inherit;
     background-repeat: no-repeat;
-
     padding: 1em;
-
 }
-
-
