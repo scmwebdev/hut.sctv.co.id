@@ -47,7 +47,7 @@
 	.slick-container {
 		@extend .container-fluid;
 		@include breakpoint(lg) {
-			@include spacepad-side(5em);
+			@include spacemar-side(10em);
 		}
 	}
 
@@ -55,12 +55,15 @@
 		position: absolute;
 		top: 40%;
 		font-size: 3vw;
+		@include breakpoint(xs) {
+			display: none;
+		}
 	}
 	.custom-slick-next {
-		right: 25px;
+		right: 0;
 	}
 	.custom-slick-prev {
-		left: 25px;
+		left: 0;
 	}
 
 }
