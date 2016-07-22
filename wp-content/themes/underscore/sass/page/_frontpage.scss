@@ -53,17 +53,17 @@
 
 	.slick-arrow {
 		position: absolute;
-		top: 40%;
+		top: 35%;
 		font-size: 3vw;
 		@include breakpoint(xs) {
 			display: none;
 		}
 	}
 	.custom-slick-next {
-		right: 0;
+		right: -1.2em;
 	}
 	.custom-slick-prev {
-		left: 0;
+		left: -1.2em;
 	}
 
 }
