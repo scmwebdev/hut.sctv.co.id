@@ -38,5 +38,5 @@ var siteUrl = '<?php echo site_url(); ?>';
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
-		<div class="<?php (is_mobile()) ? '' : 'container';?>">
+		<div class="<?php (is_mobile()) ? '' : 'container-fluid no-spacepad-side'?>">
 		

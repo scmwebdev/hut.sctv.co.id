@@ -149,6 +149,11 @@ add_image_size( 'halfsize', 600, 600, true);
 add_image_size( 'post_thumb', 400, 250, true);
 
 /* ==================================================================
+ * Add Post Format - for some reason its gone so I added back in again
+ * ================================================================== */
+add_theme_support( 'post-formats', array( 'video', 'audio', 'quote', 'link', 'gallery' ) );
+
+/* ==================================================================
  * Display child pages list
  * ================================================================== */
 
@@ -316,3 +321,13 @@ function get_show_schedule() {
 
 	wp_reset_postdata();
 }
+
+/**
+ * Set Header Image
+ */
+$args = array(
+	'flex-height'	=> true,
+	'flex-width'	=> true,
+	'default-image' => get_template_directory_uri() . '/src/images/sctv26_logo.png',
+);
+add_theme_support( 'custom-header', $args );
