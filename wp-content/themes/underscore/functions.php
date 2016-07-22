@@ -149,6 +149,11 @@ add_image_size( 'halfsize', 600, 600, true);
 add_image_size( 'post_thumb', 400, 250, true);
 
 /* ==================================================================
+ * Add Post Format - for some reason its gone so I added back in again
+ * ================================================================== */
+add_theme_support( 'post-formats', array( 'video', 'audio', 'quote', 'link', 'gallery' ) );
+
+/* ==================================================================
  * Display child pages list
  * ================================================================== */
 
