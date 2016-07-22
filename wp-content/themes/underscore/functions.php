@@ -146,13 +146,7 @@ require get_template_directory() . '/inc/jetpack.php';
 
 add_image_size( 'fullsize', 1200, 600, true);
 add_image_size( 'halfsize', 600, 600, true);
-add_image_size( 'thumb', 400, 250, true);
-
-// add_image_size( 'mainBanner_md', 992, 400, true);
-// add_image_size( 'mainBanner_xs', 600, 600, true);
-// add_image_size( 'video_thumb', 400, 250, hard);
-// add_image_size( 'article_thumb', 250, 250, hard);
-// add_image_size( 'logo', 200, 200, hard);
+add_image_size( 'post_thumb', 400, 250, true);
 
 /* ==================================================================
  * Display child pages list

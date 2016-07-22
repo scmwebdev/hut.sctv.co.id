@@ -28,7 +28,7 @@
 			<?php get_show_schedule(); ?>
 		</section>
 		<section class="" id="video-on-demand">
-			<div class="container-fluid">
+			<div class="slick-container">
 					<?php 
 						$vod = new Vidio();	
 						$vod->display_latest();

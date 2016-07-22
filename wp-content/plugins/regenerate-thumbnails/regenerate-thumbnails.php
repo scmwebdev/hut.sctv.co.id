@@ -369,6 +369,14 @@ class RegenerateThumbnails {
 
 		@set_time_limit( 900 ); // 5 minutes per image should be PLENTY
 
+		// find and delete any previous image-sizes
+		$info = pathinfo($fullsizepath);
+		$ext = $info['extension'];
+		$pattern = str_replace(".$ext", "-*x*.$ext", $fullsizepath);
+		foreach (glob($pattern) as $filename) {
+			@unlink($filename);
+		}
+
 		$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
 
 		if ( is_wp_error( $metadata ) )

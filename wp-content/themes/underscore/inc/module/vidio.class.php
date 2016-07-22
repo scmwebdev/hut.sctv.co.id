@@ -44,6 +44,13 @@ class Vidio {
 		$template .= '?autoplay=true&player_only=true&" scrolling="no" frameborder="0" allowfullscreen></iframe>';
 		return $template;
 	}
+
+	public function vidio_thumb() {
+		global $post;
+		$thumb = get_the_post_thumbnail($post->ID, 'post_thumb', array('class' => 'img-responsive') );
+
+		return $thumb;
+	}
 	/**
 	 * Grab the latest posts for video category
 	 */
@@ -62,7 +69,7 @@ class Vidio {
 				$query->the_post();
 				// $html  = '<div class="embed-responsive embed-responsive-16by9">';
 				$html  = '<div class="vidio vidio-list vidio-latest">';
-				$html .= $this->clean_url();
+				$html .= $this->vidio_thumb();
 				$html .= '</div>';
 
 				echo $html;

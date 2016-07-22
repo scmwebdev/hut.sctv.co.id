@@ -39,4 +39,28 @@
 		height: 300px;
 	}
 
+	.vidio-latest > img {
+		@extend .center-block;
+	}
+
+	/** Slick Carousel Customization **/
+	.slick-container {
+		@extend .container-fluid;
+		@include breakpoint(lg) {
+			@include spacepad-side(5em);
+		}
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 40%;
+		font-size: 3vw;
+	}
+	.custom-slick-next {
+		right: 25px;
+	}
+	.custom-slick-prev {
+		left: 25px;
+	}
+
 }
