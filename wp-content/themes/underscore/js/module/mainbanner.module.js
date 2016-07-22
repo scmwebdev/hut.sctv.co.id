@@ -15,7 +15,7 @@ $(document).ready(function() {
         var responsiveContent = function() {
 
             var total = countShow();
-            $('#show-schedule').slick({
+            $('#show-schedule > .slick-container').slick({
                 slidesToShow: total,
                 autoplay: true,
                 responsive: [{

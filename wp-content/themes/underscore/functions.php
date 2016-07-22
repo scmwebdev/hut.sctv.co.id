@@ -328,6 +328,6 @@ function get_show_schedule() {
 $args = array(
 	'flex-height'	=> true,
 	'flex-width'	=> true,
-	'default-image' => get_template_directory_uri() . '/src/images/sctv26_logo.png',
+	'default-image' => get_template_directory_uri() . '/src/sctv26_logo.png',
 );
 add_theme_support( 'custom-header', $args );

@@ -12,22 +12,26 @@
 		<main id="main" class="site-main" role="main">
 			<div class="container-fluid no-spacepad-side">
 				<section class="main-banner">
-					<?php 
-
-						if ( have_posts() ) : while ( have_posts() ) : the_post();
-							the_content();
-						endwhile;
-						endif;
-
-					 ?>
-
+					<?php
+						//call the frontpage slider 
+						masterslider(1); 
+					?>
 				</section>
 			</div>
 		</main>
-		<section class="" id="show-schedule">
-			<?php get_show_schedule(); ?>
+		<?php if(!is_mobile()) { ?>
+		<section class="underbanner">
+			<div class="container">
+				<img class="img-responsive center-block" src="<?php echo get_template_directory_uri() . '/src/26_hours.jpg'?>" alt="">
+			</div>
 		</section>
-		<section class="" id="video-on-demand">
+		<?php } //endif ?>
+		<section class="clearfix" id="show-schedule">
+			<div class="slick-container">
+				<?php get_show_schedule(); ?>
+			</div>
+		</section>
+		<section class="clearfix" id="video-on-demand">
 			<div class="slick-container">
 					<?php 
 						$vod = new Vidio();	

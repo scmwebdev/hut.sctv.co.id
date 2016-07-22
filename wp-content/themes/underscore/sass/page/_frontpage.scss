@@ -2,69 +2,99 @@
  * Front Page Styling
  */
 
+.frontpage {
+    #show-schedule,
+    #video-on-demand {
+        @include breakpoint(sm) {
+            @include spacemar(3vh);
+            @include spacemar(3em);
+        }
+    }
+}
+
+
+/**
+ * styling for the underbanner
+ */
+
+.frontpage .underbanner {
+    @include spacepad(6em);
+}
+
+
 /**
  * Styling for the shows schedule under the mainbanner
  */
+
 .frontpage #show-schedule {
-
-	background-color: #eee;
-	@include spacepad(15px);
-
-	.show {
-		width: calc(100% - 90%);
-	}
-	.show-title,
-	.show-desc {
-		text-align: center;
-		font-weight: 600;
-	}
-	.show-title {
-		font-size: 1.2em;
-	}
-	.show-desc {
-		font-size: 90%;
-		
-	}
+    // background-color: #eee;
+    color: $color__secondary;
+    /** styling on mobile **/
+    @at-root {
+        .mobile & {
+            background-color: #ff9c3d;
+            color: #fff;
+            > .slick-container {
+                @include spacepad(1em);
+            }
+        }
+    }
+    > .slick-container {
+        @extend .container;
+        @include spacepad(2em);
+        border-top: 2px solid $color__primary;
+        border-bottom: 2px solid $color__primary;
+    }
+    .show {
+        width: calc(100% - 90%);
+    }
+    .show-title,
+    .show-desc {
+        text-align: center;
+        font-weight: 600;
+    }
+    .show-title {
+        font-size: 1.2em;
+    }
+    .show-desc {
+        font-size: 90%;
+    }
 }
 
 .frontpage #video-on-demand {
-
-	@include spacepad(1em);
-
-	.vidio-latest {
-		padding: 0.5em;
-	}
-	.vidio-latest > iframe {
-		width: 100%;
-		height: 300px;
-	}
-
-	.vidio-latest > img {
-		@extend .center-block;
-	}
-
-	/** Slick Carousel Customization **/
-	.slick-container {
-		@extend .container-fluid;
-		@include breakpoint(lg) {
-			@include spacemar-side(10em);
-		}
-	}
-
-	.slick-arrow {
-		position: absolute;
-		top: 35%;
-		font-size: 3vw;
-		cursor: pointer;
-		@include breakpoint(xs) {
-			display: none;
-		}
-	}
-	.custom-slick-next {
-		right: -1.2em;
-	}
-	.custom-slick-prev {
-		left: -1.2em;
-	}
-
+    .vidio-latest {
+        padding: 0.5em;
+        @at-root {
+            .mobile & {
+                padding: 0;
+            }
+        }
+    }
+    .vidio-latest > iframe {
+        width: 100%;
+        height: 300px;
+    }
+    .vidio-latest > img {
+        @extend .center-block;
+    }
+    /** Slick Carousel Customization **/
+    .slick-container {
+        @extend .container;
+        @extend .no-spacepad-side;
+    }
+    .slick-arrow {
+        position: absolute;
+        top: 35%;
+        font-size: 3vw;
+        cursor: pointer;
+        @include breakpoint(xs) {
+            display: none;
+        }
+    }
+    .custom-slick-next {
+        right: -1.2em;
+    }
+    .custom-slick-prev {
+        left: -1.2em;
+    }
 }
