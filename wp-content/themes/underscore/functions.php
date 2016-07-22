@@ -321,3 +321,13 @@ function get_show_schedule() {
 
 	wp_reset_postdata();
 }
+
+/**
+ * Set Header Image
+ */
+$args = array(
+	'flex-height'	=> true,
+	'flex-width'	=> true,
+	'default-image' => get_template_directory_uri() . '/src/images/sctv26_logo.png',
+);
+add_theme_support( 'custom-header', $args );

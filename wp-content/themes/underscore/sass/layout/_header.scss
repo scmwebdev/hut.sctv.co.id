@@ -2,9 +2,39 @@
  * Header Styling
  */
 
- #masthead {
- 	// position: fixed;
- 	width: 100%;
- 	z-index: 9999;
- 	background-color: #000;
- }
+//size for the site logo
+#site-logo {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+// custom container for the masthead
+.masthead-container {
+	@extend .container-fluid;
+	@include breakpoint(lg) {
+		width: calc(100% - 10em);
+	}
+
+	//set these elements to inherit the height of their parent
+	//so that it will looked as if its 100% height
+	#site-navigation,
+	#site-navigation > div,
+	#primary-menu {
+		height: inherit;
+	}
+}
+
+
+.desktop #masthead {
+    // position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background: url("http://localhost/hut.sctv.co.id/wp-content/uploads/2016/07/sctv26_header_bg.png");
+    background-size: inherit;
+    background-repeat: no-repeat;
+
+    padding: 1em;
+
+}
+
+

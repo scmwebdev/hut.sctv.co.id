@@ -15,14 +15,14 @@
 }
 //this class is generated automatically by wp
  .type-video {
- 	background-color: #000;
+ 	// background-color: #000;
  	.entry-header {
  		
  		iframe {
  			width: 100%;
  			min-height: 450px;
  			overflow: hidden;
- 			margin-bottom: 2em;
+ 			@include spacemar(2em);
  			//adjust the height on bigger screen
  			@include breakpoint(md) {
  				height: 600px;
