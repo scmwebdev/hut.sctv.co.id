@@ -58,6 +58,9 @@ class Vidio {
 		return $thumb;
 	}
 
+	/**
+	 * Template for the video as page
+	 */
 	public function vidio_page() {
 		$html  = '<div class="vidio vidio-page vidio-latest">';
 		$html .= $this->clean_url();
@@ -66,6 +69,9 @@ class Vidio {
 		echo $html;
 	}
 
+	/**
+	 * Template for the video as lists(thumbnails)
+	 */
 	public function vidio_list() {
 
 		$html  = '<div class="vidio vidio-list vidio-latest">';
@@ -83,8 +89,9 @@ class Vidio {
 		//set our filter
 		$args = array(
 			'post_type' => 'post',
-			'cat' => 4,
-			'post_per_page' => '6'
+			'post_type' => 'video',
+			'post_per_page' => '6',
+
 		);
 
 		$query = new WP_Query($args);
