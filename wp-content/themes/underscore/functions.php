@@ -99,14 +99,26 @@ function hut_sctv_underscore_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
+	// register footer sitemap
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Sitemap', 'hut-sctv-underscore' ),
 		'id'            => 'footer_sitemap',
 		'description'   => esc_html__( 'Add widgets here.', 'hut-sctv-underscore' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	// register footer social media
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Social Media', 'hut-sctv-underscore' ),
+		'id'            => 'footer_social',
+		'description'   => esc_html__( 'Add widgets here.', 'hut-sctv-underscore' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'hut_sctv_underscore_widgets_init' );

@@ -2,9 +2,34 @@
  * Footer Styling
  */
 
- footer {
- 	//set the bg to orange (primary color)
- 	background-color: $color__primary;
+footer#colophon {
+    //set the bg to orange (primary color)
+    background-color: $color__primary;
+    //add padding top and bottom
+    @include spacepad(1.2em);
+}
 
- 	@include spacepad(1.2em);
- }
+footer#colophon {
+    // set footer content div to float left
+    .footer-content {
+        float: left;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    // hide the widget title while preserving the space
+    .widget-title {
+        visibility: hidden;
+    }
+    .widget {
+        ul {
+            @extend .nodots;
+            li {
+                a {
+                    color: $color__text__menu;
+                    font-size: 1.1em;
+                    display: block;
+                }
+            }
+        }
+    }
+}

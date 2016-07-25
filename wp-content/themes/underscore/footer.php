@@ -15,10 +15,10 @@
 
 	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		<div class="container">
-			<section class="site-logo">
+			<section class="site-logo footer-content">
 				<img id="site-logo" class="img-responsive" src="<?php echo get_header_image(); ?>" alt="sctv 26 - site logo">
 			</section>
-			<section>
+			<section class="site-map footer-content">
 				<?php dynamic_sidebar( 'footer_sitemap' ); ?>
 			</section>
 		</div>
