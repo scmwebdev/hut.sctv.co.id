@@ -21,6 +21,7 @@ footer#colophon {
         visibility: hidden;
     }
     .widget {
+        //remove padding left, margin left, and the bullet point from the list
         ul {
             @extend .nodots;
             li {
@@ -29,6 +30,30 @@ footer#colophon {
                     font-size: 1.1em;
                     display: block;
                 }
+            }
+        }
+    }
+    .site-social {
+        width: 100%;
+        text-align: right;
+        .title {
+            color: $color__text__menu;
+        }
+        .copyrights {
+        	opacity: 0.6;
+        	font-weight: 500;
+        }
+        ul > li {
+            display: inline-block;
+            text-align: center;
+            padding: .2em;
+            $width: 120px;
+            &.vidio img {
+            	max-width: $width;
+            }
+            &.facebook img,
+            &.twitter img {
+            	max-width: $width - 85px;
             }
         }
     }
