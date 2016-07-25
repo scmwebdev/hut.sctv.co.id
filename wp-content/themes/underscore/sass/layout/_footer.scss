@@ -1,0 +1,10 @@
+/**
+ * Footer Styling
+ */
+
+ footer {
+ 	//set the bg to orange (primary color)
+ 	background-color: $color__primary;
+
+ 	@include spacepad(1.2em);
+ }

@@ -13,11 +13,14 @@
 		</div><!-- .container -->
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		<div class="container">
-			<div class="site-info">
-			
-			</div><!-- .site-info -->
+			<section class="site-logo">
+				<img id="site-logo" class="img-responsive" src="<?php echo get_header_image(); ?>" alt="sctv 26 - site logo">
+			</section>
+			<section>
+				<?php dynamic_sidebar( 'footer_sitemap' ); ?>
+			</section>
 		</div>
 	</footer><!-- #colophon -->
 	
