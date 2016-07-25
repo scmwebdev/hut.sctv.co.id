@@ -1,16 +1,18 @@
 .main-navigation {
     display: block;
-    float: left;
+    float: right;
     ul {
         display: none;
         list-style: none;
         margin: 0;
         padding-left: 0;
+
         ul {
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+            // box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+            @include card(1);
             float: left;
             position: absolute;
-            top: 1.5em;
+            top: 4em;
             left: -999em;
             z-index: 99999;
             ul {
@@ -18,13 +20,19 @@
                 top: 0;
             }
             li {
+                &:hover {
+                    background-color: $color__primary;
+                    a {
+                        color: $color__text__menu;
+                    }
+                }
                 &:hover > ul,
                 &.focus > ul {
                     left: 100%;
                 }
             }
             a {
-                width: 200px;
+                min-width: 10em;
             }
             :hover > a,
             .focus > a {}
@@ -33,7 +41,8 @@
         }
         li:hover > ul,
         li.focus > ul {
-            left: auto;
+            // left: auto;
+            left: -3em;
         }
     }
     li {
@@ -45,6 +54,8 @@
     a {
         display: block;
         text-decoration: none;
+        color: $color__primary;
+        @include transition(.2s);
     }
     .current_page_item > a,
     .current-menu-item > a,
@@ -87,29 +98,39 @@
     }
 }
 
+//styling for the arrow highlighter when the menu is hovered
+.main-navigation {
+    .menu-highlighter {
+        text-align: center;
+        visibility: hidden;
+        @include transition(.3s);
+        @include opacity(0);
+    }
+}
+
 // Main Navigation Link style
 .main-navigation {
-    float: right;
-    a {
-        color: $color__primary;
-        padding: 1em;
-    }
+    //styling for the parent menu
     #primary-menu {
         @include clearfix();
         font-size: 1.2em;
         font-weight: 500;
-
-        //fix the blurry when using vertical-align mixin
-        -webkit-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-        
-        #primary-menu > li {
-            @include vertical-align();
+        > li {
+            padding: 1em;
+            @at-root {
+                &:hover {
+                    .menu-highlighter {
+                        visibility: visible;
+                        @include opacity(1);
+                    }
+                }
+            }
+        }
+    }
+    .sub-menu {
+        > li {
+            padding: 1em 0.5em;
+            text-align: center;
         }
     }
 }
-
-
-
-

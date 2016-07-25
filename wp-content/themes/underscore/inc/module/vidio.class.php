@@ -88,7 +88,6 @@ class Vidio {
 	public function display_latest() {
 		//set our filter
 		$args = array(
-			'post_type' => 'post',
 			'post_type' => 'video',
 			'post_per_page' => '6',
 

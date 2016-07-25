@@ -35,3 +35,13 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+/** 
+ * Make sure you add this on the parent container
+ * otherwise the content will be blurry
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+ */

@@ -13315,18 +13315,25 @@ return jQuery;
 
 }));
 
-var PageHeader = (function(){
-	
-	
-	// return selectElement;
-	// return alert('anjing!');
+var PageHeader = (function() {
+
+    //create a function 
+    var letThereBeDOM = function($target, $dom) {
+        $target.append($dom);
+    }
+
+    return {
+        letThereBeDOM: letThereBeDOM
+    }
 
 }());
 
 $(document).ready(function() {
-	var selectElement = $('[data-element="segment"]');
-	selectElement.matchHeight();
+
+    var selectElement = $('[data-element="segment"]');
+    selectElement.matchHeight();
 });
+
 /**
  * Create a func that counts how many selected DOM on the document
  * and use the slick plugin properties to adjust how many contents
@@ -13643,4 +13650,12 @@ var page = (function() {
 
 $(document).ready(function() {
     page.vidio_latest();
+
+    /** add arrow DOM on the menu when hovered */
+    var parentMenu = $('.menu > li > a');
+    var icon = '<div class="menu-highlighter"><i class="fa fa-chevron-down"></i></div>';
+
+    PageHeader.letThereBeDOM(parentMenu, icon);
+    // **
+
 });
