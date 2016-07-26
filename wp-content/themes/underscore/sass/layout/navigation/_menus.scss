@@ -6,7 +6,6 @@
         list-style: none;
         margin: 0;
         padding-left: 0;
-
         ul {
             // box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
             @include card(1);
@@ -42,7 +41,7 @@
         li:hover > ul,
         li.focus > ul {
             // left: auto;
-            left: -3em;
+            left: -2em;
         }
     }
     li {
@@ -116,7 +115,7 @@
         font-size: 1.2em;
         font-weight: 500;
         > li {
-            padding: 1em;
+            padding: 1em 2em;
             @at-root {
                 &:hover {
                     .menu-highlighter {
@@ -131,6 +130,80 @@
         > li {
             padding: 1em 0.5em;
             text-align: center;
+            background-color: #fff;
+            cursor: pointer;
         }
+    }
+}
+
+
+/* *********************** *
+ * Mobile Masthead *
+ * *********************** */
+
+#site-navigation {
+    @include transition(.3s);
+    @at-root {
+        body.mobile & {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 99999;
+            top: -999px;
+            background-color: $color__primary;
+            color: #fff;
+        }
+        body.mobile.menu-active & {
+            top: 0;
+            overflow: hidden;
+            position: fixed;
+
+            // set the mobile menu link to white color
+            a {
+                color: $color__text__menu;
+            }
+
+            #primary-menu {
+                width: 100%;
+            }
+            li {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+/** styling for each of the mobile menu bar **/
+
+.menu-bar {
+    width: 2em;
+    height: 3px;
+    display: block;
+    background-color: $color__primary;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    right: 0;
+    @at-root {
+        body.mobile.menu-active {
+            .menu-bar {
+                right: -5em;
+                display: none;
+            }
+        }
+    }
+}
+
+
+/** 
+ * generate style for each of the menu-bars
+ * with each transition being incremented by 0.2s
+ */
+
+@for $i from 1 through 3 {
+    .menu-bars-#{$i} {
+        @include transition($i * 0.2 + s);
     }
 }

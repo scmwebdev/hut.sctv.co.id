@@ -4,8 +4,11 @@
 
 //size for the site logo
 #site-logo {
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 100px;
+    @include breakpoint(sm) {
+        max-width: 250px;
+        max-height: 250px;
+    }
 }
 
 // custom container for the masthead
@@ -29,3 +32,13 @@
     z-index: 9999;
     padding: 1em;
 }
+
+
+/* *********************** *
+ * Mobile Masthead *
+ * *********************** */
+
+#masthead {
+    padding: 1em 0;
+}
+

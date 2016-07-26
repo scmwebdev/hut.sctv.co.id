@@ -34,26 +34,41 @@ footer#colophon {
         }
     }
     .site-social {
-        width: 100%;
-        text-align: right;
+
+        // right aligned above mobile screen
+        @include breakpoint(sm) {
+            text-align: right;    
+        }
+        
+        // set the color for the menu (default to white)
         .title {
             color: $color__text__menu;
         }
+
+        // styling for the copyright text
         .copyrights {
         	opacity: 0.6;
         	font-weight: 500;
         }
+
+        // the icons is displayed in lists as inline-block elements
         ul > li {
             display: inline-block;
             text-align: center;
             padding: .2em;
+
+            /** 
+             * set the default width and substract that to get the
+             * proper size for the facebook and twitter
+             * Note: might break when we start adding more icons
+             */
             $width: 120px;
             &.vidio img {
             	max-width: $width;
             }
             &.facebook img,
             &.twitter img {
-            	max-width: $width - 85px;
+            	max-width: $width - 85px; //35px
             }
         }
     }

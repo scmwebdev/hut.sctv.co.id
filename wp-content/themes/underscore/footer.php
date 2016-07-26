@@ -15,14 +15,13 @@
 
 	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		<div class="container">
-			<section class="site-logo footer-content">
-				<!-- <img id="site-logo" class="img-responsive" src="<?php echo get_header_image(); ?>" alt="sctv 26 - site logo"> -->
+			<section class="site-logo footer-content col-xs-12 col-sm-3">
 				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/src/26sctv_logo_white.png" alt="">
 			</section>
-			<section class="site-map footer-content">
+			<section class="site-map footer-content col-xs-12 col-sm-8">
 				<?php dynamic_sidebar( 'footer_sitemap' ); ?>
 			</section>
-			<section class="site-social">
+			<section class="site-social col-xs-12">
 				<h3 class="title">Follow Us</h3>
 				<ul class="nodots clearfix">
 					<li class="vidio">

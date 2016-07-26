@@ -33,7 +33,7 @@ $(document).ready(function() {
     page.vidio_latest();
 
     /** add arrow DOM on the menu when hovered */
-    var parentMenu = $('.menu > li > a');
+    var parentMenu = $('.desktop #primary-menu > li > a');
     var icon = '<div class="menu-highlighter"><i class="fa fa-chevron-down"></i></div>';
 
     PageHeader.letThereBeDOM(parentMenu, icon);
