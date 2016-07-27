@@ -16,7 +16,7 @@
 	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		<div class="container">
 			<section class="site-logo footer-content col-xs-12 col-sm-3">
-				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/src/26sctv_logo_white.png" alt="">
+				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/asset/26sctv_logo_white.png" alt="">
 			</section>
 			<section class="site-map footer-content col-xs-12 col-sm-8">
 				<?php dynamic_sidebar( 'footer_sitemap' ); ?>
@@ -26,17 +26,17 @@
 				<ul class="nodots clearfix">
 					<li class="vidio">
 						<a target="_blank" href="http://www.vidio.com">
-							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/src/vidio_logo.png" alt="">
+							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/asset/vidio_logo.png" alt="">
 						</a>
 					</li>
 					<li class="facebook">
 						<a target="_blank" href="http://www.facebook.com">
-							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/src/facebook_logo.png" alt="">
+							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/asset/facebook_logo.png" alt="">
 						</a>
 					</li>
 					<li class="twitter">
 						<a target="_blank" href="http://www.vidio.com">
-							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/src/twitter_logo.png" alt="">
+							<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/asset/twitter_logo.png" alt="">
 						</a>
 					</li>
 				</ul>

@@ -22,7 +22,7 @@
 		<?php if(!is_mobile()) { ?>
 		<section class="underbanner">
 			<div class="container">
-				<img class="img-responsive center-block" src="<?php echo get_template_directory_uri() . '/src/26_hours.jpg'?>" alt="">
+				<img class="img-responsive center-block" src="<?php echo get_template_directory_uri() . '/asset/26_hours.jpg'?>" alt="">
 			</div>
 		</section>
 		<?php } //endif ?>
