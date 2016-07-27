@@ -20,12 +20,15 @@
 		</div>
 	</header><!-- .entry-header -->
 
-	<!-- <section class="entry-content">
+	<section class="entry-content">
 		<div class="container">
-			<?php the_title('<h1>'); ?>
+			<h1 class=title><?php echo get_the_title() ?></h1>
+			<div class="desc">
+				<?php the_content(); ?>
+			</div>
 		</div>
 		
-	</section> -->
+	</section>
 
 	<footer class="entry-footer">
 	</footer><!-- .entry-footer -->

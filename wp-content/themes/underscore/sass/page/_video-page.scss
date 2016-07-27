@@ -4,31 +4,39 @@
 
 // set the document to full height for video page
 .single-video {
-
-	#content > div,
-	#primary,
-	#id,
-	#main,
-	article {
-		height: 100%;
-	}
+    #content > div,
+    #primary,
+    #id,
+    #main,
+    article {
+        height: 100%;
+    }
 }
+
 //this class is generated automatically by wp
- .type-video {
- 	// background-color: #000;
- 	.entry-header {
- 		
- 		iframe {
- 			width: 100%;
- 			min-height: 450px;
- 			overflow: hidden;
- 			@include spacemar(2em);
- 			//adjust the height on bigger screen
- 			@include breakpoint(md) {
- 				height: 600px;
- 			}
- 		}
+.type-video {
 
- 	}
+	//style for the video iframe
+    .entry-header {
+        background-color: #000;
+        iframe {
+            width: 100%;
+            min-height: 450px;
+            overflow: hidden;
+            @include spacemar(2em);
+            //adjust the height on bigger screen
+            @include breakpoint(md) {
+                height: 600px;
+            }
+        }
+    }
 
- }
+    .entry-content {
+    	@include spacemar(1em);
+
+    	.title {margin-bottom: 1em;}
+    	.desc {
+    		@include font-size(1.6);
+    	}
+    }
+}
