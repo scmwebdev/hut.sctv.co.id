@@ -345,6 +345,32 @@ function get_show_schedule() {
 }
 
 /**
+ * Get Sponsor
+ */
+function get_sponsor() {
+
+	$args = array(
+		'post_type' => 'sponsor'
+	);
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) { 
+		while ($query->have_posts()) {
+			$query->the_post();
+			
+			$sponsor  = '<div class="item-list">';
+			$sponsor .= get_the_post_thumbnail($query->ID);
+			$sponsor .= '</div>';
+
+			echo $sponsor;
+		}
+	}
+
+	wp_reset_postdata();
+}
+
+/**
  * Set Header Image
  */
 $args = array(
