@@ -1,0 +1,22 @@
+/**
+ * Slick Carousel Style Overrides
+ */
+
+// arrow styling
+.slick-arrow {
+    position: absolute;
+    cursor: pointer;
+    @include breakpoint(xs) {
+        display: none;
+    }
+}
+
+// set the position for the right arrow
+.custom-slick-next {
+    right: -1.2em;
+}
+
+// set the position for the left arrow
+.custom-slick-prev {
+    left: -1.2em;
+}

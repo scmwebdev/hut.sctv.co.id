@@ -1,0 +1,21 @@
+/**
+ * Our Sponsor
+ * Styling for the sponsor section (in slider)
+ * this is just a section of a page not a page template
+ */
+
+#sponsor {
+    .slick-container {
+        @include spacepad(5em);
+    }
+    .slick-arrow {
+        color: $color__primary;
+        @include font-size(2);
+        top: 43%;
+    }
+    .item-list {
+        img {
+            @extend .center-block;
+        }
+    }
+}
