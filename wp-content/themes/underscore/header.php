@@ -24,7 +24,7 @@ var siteUrl = '<?php echo site_url(); ?>';
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> style="background: url('<?php echo site_url()?>/wp-content/uploads/2016/07/site_bg.jpg') no-repeat;background-position-y: -120%;background-size: cover;">
+<body <?php body_class(); ?> style="background: url('<?php echo site_url()?>/wp-content/uploads/2016/07/site_bg.jpg') no-repeat;background-position-y: -10%;background-size: inherit;">
 <div id="page" class="site <?php (is_mobile()) ? 'mobile' : 'desktop';?>">
 	<!-- #masthead -->
 	<header id="masthead" class="site-header" role="banner" style="background: url('<?php echo site_url()?>/wp-content/uploads/2016/07/sctv26_header_bg.png') no-repeat;background-size: inherit;">

@@ -58,6 +58,13 @@ class Vidio {
 		return $thumb;
 	}
 
+	public function vidio_title() {
+		global $post;
+		$title = get_the_title($post->ID);
+
+		return $title;
+	}
+
 	/**
 	 * Template for the video as page
 	 */
@@ -71,17 +78,21 @@ class Vidio {
 
 	/**
 	 * Template for the video as lists(thumbnails)
+	 * STATUS: NOT USED!
+	 * THIS IS REPLACED WITH AN ACTUAL TEMPLATE UNDER TEMPLATE-PARTS FOLDER
 	 */
 	public function vidio_list() {
 
-		$html  = '<div class="vidio vidio-list vidio-latest">';
+		$html  = '<div class="vidio vidio-list vidio-latest post-list">';
 		$html .= '<a href="'. get_permalink() .'">';
-		$html .= $this->vidio_thumb();
+		$html .= '<div class="post-list-content">' . $this->vidio_thumb() . '</div>';
+		$html .= '<div class="post-list-title">' . $this->vidio_title() . '</div>';
 		$html .= '</a>';
 		$html .= '</div>';
 
 		echo $html;
 	}
+
 	/**
 	 * Grab the latest posts for video category
 	 */
@@ -98,7 +109,7 @@ class Vidio {
 		if ($query->have_posts()) { 
 			while ($query->have_posts()) {
 				$query->the_post();
-				$this->vidio_list();
+				get_template_part('template-parts/content', 'list' );
 			}
 		}
 

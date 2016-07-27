@@ -1,0 +1,34 @@
+/**
+ * Post Lists
+ * template for all post lists including article and videos
+ */
+
+// parent class for all post lists
+.post-list {
+    a {
+    	color: $color__secondary;
+        &:hover {
+            text-decoration: none !important;
+            color: $color__primary;
+        }
+    }
+}
+
+// class container for the thumbnails/video/image
+.post-list-content {}
+
+// class for the title
+.post-list-title {
+    @include spacepad(.5em);
+    @include font-size(1.7);
+    font-weight: 500;
+}
+
+// class for the description
+.post-list-desc {}
+
+// add padding left & right for titles and desc
+.post-list-title,
+.post-list-desc {
+	@include spacepad-side(0.5em);
+}
