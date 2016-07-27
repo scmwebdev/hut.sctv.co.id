@@ -40,7 +40,7 @@ var page = (function() {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    arrows: false,
+                    // arrows: false,
                     draggable: true
                 }
             }]

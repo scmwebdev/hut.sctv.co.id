@@ -5,6 +5,7 @@
  */
 
 #sponsor {
+    // custom slick style for sponsor section
     .slick-container {
         @include spacepad(5em);
     }
@@ -12,6 +13,14 @@
         color: $color__primary;
         @include font-size(2);
         top: 43%;
+    }
+    // set the position for the right arrow
+    .custom-slick-next {
+        right: 1em;
+    }
+    // set the position for the left arrow
+    .custom-slick-prev {
+        left: 1em;
     }
     .item-list {
         img {
