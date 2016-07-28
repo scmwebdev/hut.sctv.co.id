@@ -13587,8 +13587,10 @@ var PersonalityQuiz = {
         var resultContainer = $('.quiz-result');
         var resultID = persona.name.replace(/\s/g, '-').toLowerCase();
 
+        //result html template
         var html = '<section class="clearfix container"><h2 class="title result-title spacepad-15">Your personality is...</h2><section class="col-xs-12 col-sm-4 result-img"><img alt="image - ' + persona.name + '"src="' + siteUrl + persona.img + '"></section><section class="col-xs-12 col-sm-8"><h1 class="title result-name">' + persona.name + '!</h1><p class=result-desc>' + persona.desc + '</section></section>';
 
+        //append the result html to the page
         resultContainer.attr('id', resultID).append(html);
     },
     /**

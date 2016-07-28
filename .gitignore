@@ -24,3 +24,8 @@ bower_components/
 
 # ignore npm files
 node_modules/
+
+# ignore capistrano files
+config/
+lib/
+Capfile

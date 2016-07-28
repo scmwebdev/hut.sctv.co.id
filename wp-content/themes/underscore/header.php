@@ -19,6 +19,9 @@
 
 <script type="text/javascript">
 var siteUrl = '<?php echo site_url(); ?>';
+var themeUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
+
+// console.log(themeUrl);
 </script>
 
 <?php wp_head(); ?>
