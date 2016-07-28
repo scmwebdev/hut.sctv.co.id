@@ -127,9 +127,15 @@ add_action( 'widgets_init', 'hut_sctv_underscore_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hut_sctv_underscore_scripts() {
+
+	//include the main css file onto the themes
 	wp_enqueue_style( 'hut-sctv-underscore-style', get_stylesheet_uri() );
 	
+	//include the main js file onto the themes
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/main.js', array(), true );
+
+	//include vidio.com embed js
+	wp_enqueue_script( 'vidio', '//cdn0-a.production.vidio.static6.com/assets/javascripts/vidio-embed.js', array(), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
