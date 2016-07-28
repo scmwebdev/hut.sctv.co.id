@@ -36,7 +36,7 @@
             background-color: #ff9c3d;
             color: #fff;
             > .slick-container {
-                @include spacepad(1em);
+                @include spacepad(2em);
             }
         }
     }
