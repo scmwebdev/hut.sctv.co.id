@@ -11,6 +11,7 @@
 - ``gulp style`` this will compile all scss files under sass/ folder and outputs it as **style.css** which is located under the themes folder.
 - ``gulp js`` this will compile all js files under js/ folder and outputs it as **main.js** which is located under the themes folder.
 - ``gulp utility`` this will copy/move files from the npm modules to its appropriate folder inside our themes. This include the slick carousel, bootstrap, & fontawesome
-- ``gulp prod`` this will generate a folder called dist/ which contains all the production files that are needed for production env. This is the folder that is being exported to the server
+- ``gulp prod`` this will generate a folder called dist/ which contains all the production files that are needed for production env. This is the folder that is being exported to the server.
+
 
 ``*Please note that you must activate your dev server first before you can preview the site``
