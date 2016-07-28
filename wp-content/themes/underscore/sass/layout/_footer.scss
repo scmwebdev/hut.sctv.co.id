@@ -15,10 +15,12 @@ footer#colophon {
         float: left;
         padding-left: 1em;
         padding-right: 1em;
+        @include spacemar(1em);
     }
     // hide the widget title while preserving the space
     .widget-title {
         visibility: hidden;
+        color: $color__text__menu;
     }
     .widget {
         //remove padding left, margin left, and the bullet point from the list
@@ -33,30 +35,49 @@ footer#colophon {
             }
         }
     }
-    .site-social {
+    .site-map {
+        li {
+            @extend .col-sm-2;
+            @extend .col-xs-6;
+            @include spacemar(.5em);
+            @include font-size(1.5);
 
+            // remove padding left on mobile
+            @include breakpoint(xs) {
+                padding-left: 0;
+            }
+
+            // desktop style
+            @include breakpoint(sm) {
+                text-align: center; // set the text to centered aligned
+
+                // add border left and right on even child
+                &:nth-child(even) {
+                    border-left: 1px solid #fff;
+                    border-right: 1px solid #fff;
+                }
+            }
+        }
+    }
+    .site-social {
         // right aligned above mobile screen
         @include breakpoint(sm) {
-            text-align: right;    
+            text-align: right;
         }
-        
         // set the color for the menu (default to white)
         .title {
             color: $color__text__menu;
         }
-
         // styling for the copyright text
         .copyrights {
-        	opacity: 0.6;
-        	font-weight: 500;
+            opacity: 0.6;
+            font-weight: 500;
         }
-
         // the icons is displayed in lists as inline-block elements
         ul > li {
             display: inline-block;
             text-align: center;
             padding: .2em;
-
             /** 
              * set the default width and substract that to get the
              * proper size for the facebook and twitter
@@ -64,11 +85,11 @@ footer#colophon {
              */
             $width: 120px;
             &.vidio img {
-            	max-width: $width;
+                max-width: $width;
             }
             &.facebook img,
             &.twitter img {
-            	max-width: $width - 85px; //35px
+                max-width: $width - 85px; //35px
             }
         }
     }
