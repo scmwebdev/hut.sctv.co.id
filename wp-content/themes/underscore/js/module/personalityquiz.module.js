@@ -99,9 +99,8 @@ var PersonalityQuiz = {
      */
     bindUI: function() {
 
-        var item = $('quiz-content > .item');
-        // var submitBtn = PersonalityQuiz.config.submitBtn;
-        var submitBtn = $('#submitScore');
+        var item = $('quiz-content > .item'); //item selector
+        var submitBtn = $('#submitScore'); //submit button selector
 
         item.on('click', function(evt) {
             evt.stopPropagation();
@@ -110,15 +109,15 @@ var PersonalityQuiz = {
             var itemChecked = $('.item.selected');
             if (itemChecked.length) {
 
-                if (itemChecked.length === 4) {
+                if (itemChecked.length == 4) {
                     submitBtn.removeClass('disabled');
                     $(item).not('.selected').css('pointer-events', 'none');
-
                 } else {
                     $(item).css('pointer-events', 'auto');
-                    submitBtn.addClass('enable');
+                    submitBtn.addClass('disabled');
                 }
 
+                // console.log(itemChecked.length);
             }
         });
 
