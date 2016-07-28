@@ -26,10 +26,24 @@
 			<div class="desc">
 				<?php the_content(); ?>
 			</div>
+			<hr>
 		</div>
 		
 	</section>
 
 	<footer class="entry-footer">
+		<div class="section-title">
+				<div class="container spacepad-15">
+					<img class="img-responsive center-block" src="<?php echo get_stylesheet_directory_uri() ?>/asset/latest_video.png" alt="latest video">
+				</div>
+			</div>
+		<section class="clearfix container" id="video-on-demand">
+			<div class="slick-container">
+					<?php 
+						$vod = new Vidio();	
+						$vod->display_latest();
+					?>
+			</div>
+		</section>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -12,7 +12,7 @@ $(document).ready(function() {
          */
         var vidio_latest = function() {
 
-            var target = $('#video-on-demand > div');
+            var target = $('#video-on-demand > .slick-container');
             target.slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,

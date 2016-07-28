@@ -38,7 +38,6 @@
 						$vod->display_latest();
 					?>
 			</div>
-
 		</section>
 
 		<!-- display the sponsor list -->

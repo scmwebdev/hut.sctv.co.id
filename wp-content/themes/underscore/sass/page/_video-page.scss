@@ -14,8 +14,7 @@
 }
 
 //this class is generated automatically by wp
-.type-video,
-.livestream {
+.type-video {
 
 	//style for the video iframe
     .entry-header {
@@ -34,10 +33,9 @@
 
     .entry-content {
     	@include spacemar(1em);
-
     	.title {margin-bottom: 1em;}
-    	.desc {
-    		@include font-size(1.6);
-    	}
+    	.desc { @include font-size(1.6); }
     }
+
+    
 }

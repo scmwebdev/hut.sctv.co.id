@@ -5,6 +5,7 @@
 
 // parent class for all post lists
 .post-list {
+    padding: 0.5em;
     a {
     	color: $color__secondary;
         &:hover {
