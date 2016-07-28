@@ -6,16 +6,17 @@
 	 */
 
 	get_header();
+	$livestreamURL = get_field('livestream_url'); //grab the livestream URL
+
 ?>
 
-	<div id="primary" class="content-area frontpage">
+	<div id="primary" class="content-area frontpage livestream">
 		<main id="main" class="site-main" role="main">
-			<?php 
-
-				$livestreamURL = get_field('livestream_url');
-				echo $livestreamURL;
-
-			?>
+			<div class="entry-header">
+				<div class="container">
+					<iframe src="<?php echo $livestreamURL?>"></iframe>	
+				</div>
+			</div>
 		</main>
 	</div>
 

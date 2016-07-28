@@ -14,7 +14,8 @@
 }
 
 //this class is generated automatically by wp
-.type-video {
+.type-video,
+.livestream {
 
 	//style for the video iframe
     .entry-header {
@@ -26,7 +27,7 @@
             @include spacemar(2em);
             //adjust the height on bigger screen
             @include breakpoint(md) {
-                height: 600px;
+                min-height: 600px;
             }
         }
     }
