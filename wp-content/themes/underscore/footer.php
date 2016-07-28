@@ -18,10 +18,10 @@
 			<section class="site-logo footer-content col-xs-12 col-sm-3">
 				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/asset/26sctv_logo_white.png" alt="">
 			</section>
-			<section class="site-map footer-content col-xs-12 col-sm-6">
+			<section class="site-map footer-content col-xs-12 col-sm-9 col-md-6">
 				<?php dynamic_sidebar( 'footer_sitemap' ); ?>
 			</section>
-			<section class="site-social col-xs-12 col-sm-3 pull-right">
+			<section class="site-social col-xs-12 col-md-3 pull-right">
 				<h3 class="title">Follow Us</h3>
 				<ul class="nodots clearfix">
 					<li class="vidio">

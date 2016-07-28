@@ -17,15 +17,22 @@ footer#colophon {
         padding-right: 1em;
         @include spacemar(1em);
     }
-    // hide the widget title while preserving the space
+    /**
+     * hide the widget title while preserving the space on desktop
+     * hide it completely on mobile
+     */
     .widget-title {
-        visibility: hidden;
+        display: none;
         color: $color__text__menu;
+        @include breakpoint(sm) {
+            visibility: hidden;
+            display: block;
+        }
     }
     .widget {
         //remove padding left, margin left, and the bullet point from the list
         ul {
-            @extend .nodots;
+            // @extend .nodots;
             li {
                 a {
                     color: $color__text__menu;
@@ -36,25 +43,36 @@ footer#colophon {
         }
     }
     .site-map {
-        li {
-            @extend .col-sm-2;
-            @extend .col-xs-6;
-            @include spacemar(.5em);
-            @include font-size(1.5);
-
-            // remove padding left on mobile
-            @include breakpoint(xs) {
-                padding-left: 0;
+        ul {
+            @include clearfix();
+            /** 
+             * Add margin left -15px so its aligned with
+             * the rest of the content
+             */
+            @extend .row;
+            // set the ul to have 0 padding
+            padding: 0;
+            //manually remove the bullet point from the lists
+            li {
+                list-style-type: none !important;
             }
+        }
+        li {
 
-            // desktop style
-            @include breakpoint(sm) {
-                text-align: center; // set the text to centered aligned
+            @at-root {
+                body.mobile & {
+                    @extend .col-xs-4;
+                    @include spacemar(.5em);
+                }
 
-                // add border left and right on even child
-                &:nth-child(even) {
-                    border-left: 1px solid #fff;
-                    border-right: 1px solid #fff;
+                body.desktop & {
+                    float: left;
+                    padding-left: 1em;
+                    padding-right: 1em;
+                    &:nth-child(even) {
+                        border-left: 1px solid #fff;
+                        border-right: 1px solid #fff;
+                    }
                 }
             }
         }

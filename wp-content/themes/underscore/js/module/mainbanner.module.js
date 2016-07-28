@@ -19,7 +19,7 @@ $(document).ready(function() {
                 slidesToShow: total,
                 autoplay: true,
                 responsive: [{
-                    breakpoint: 600,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2
